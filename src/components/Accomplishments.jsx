@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, Users, BadgeCheck, Star, ExternalLink } from 'lucide-react';
+import signAppIcon from '../assets/signapp_icon.png';
 
 const Accomplishments = () => {
   const achievements = [
@@ -44,10 +45,8 @@ const Accomplishments = () => {
           >
             <div className="ach-layout">
               <div className="ach-visual">
-                <div className="app-icon-placeholder">
-                  {/* APP ICON PLACEHOLDER */}
-                  <Trophy size={60} color="var(--primary)" />
-                  <span className="placeholder-text">App Icon</span>
+                <div className="app-icon-container">
+                  <img src={signAppIcon} alt="Sign Language AppIcon" className="app-icon" />
                 </div>
                 <div className="ach-badge">
                   <BadgeCheck size={18} /> {ach.badge}
@@ -123,23 +122,23 @@ const Accomplishments = () => {
           align-items: center;
           gap: 1.5rem;
         }
-        .app-icon-placeholder {
+        .app-icon-container {
           width: 180px;
           height: 180px;
           background: rgba(255, 255, 255, 0.03);
-          border: 2px dashed var(--glass-border);
-          border-radius: 2rem;
+          border: 1px solid var(--glass-border);
+          border-radius: 2.5rem;
           display: flex;
-          flex-direction: column;
           align-items: center;
           justify-content: center;
-          gap: 1rem;
+          overflow: hidden;
           position: relative;
+          box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
-        .placeholder-text {
-          font-size: 0.8rem;
-          color: var(--text-muted);
-          font-weight: 600;
+        .app-icon {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .ach-badge {
           display: inline-flex;
