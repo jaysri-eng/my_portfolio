@@ -2,7 +2,43 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Send, MapPin, Phone } from 'lucide-react';
 
+const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 const Contact = () => {
+  const [result, setResult] = React.useState("");
+  const [status, setStatus] = React.useState("idle"); // idle, loading, success, error
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setStatus("loading");
+    setResult("Sending...");
+    
+    const formData = new FormData(event.target);
+    formData.append("access_key", accessKey);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("success");
+        setResult("Message sent successfully!");
+        event.target.reset();
+      } else {
+        console.log("Error", data);
+        setStatus("error");
+        setResult(data.message);
+      }
+    } catch (error) {
+      console.log("Error", error);
+      setStatus("error");
+      setResult("Something went wrong. Please try again.");
+    }
+  };
+
   return (
     <div className="contact-section">
       <h2 className="section-title">Get In Touch</h2>
@@ -40,6 +76,7 @@ const Contact = () => {
         </motion.div>
 
         <motion.form 
+          onSubmit={onSubmit}
           className="contact-form glass"
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -47,19 +84,22 @@ const Contact = () => {
         >
           <div className="form-group">
             <label>Name</label>
-            <input type="text" placeholder="Your name" />
+            <input type="text" name="name" placeholder="Your name" required />
           </div>
           <div className="form-group">
             <label>Email</label>
-            <input type="email" placeholder="Your email" />
+            <input type="email" name="email" placeholder="Your email" required />
           </div>
           <div className="form-group">
             <label>Message</label>
-            <textarea rows="5" placeholder="Your message"></textarea>
+            <textarea name="message" rows="5" placeholder="Your message" required></textarea>
           </div>
-          <button type="submit" className="submit-btn">
-            Send Message <Send size={18} />
+          <button type="submit" className="submit-btn" disabled={status === "loading"}>
+            {status === "loading" ? "Sending..." : "Send Message"} <Send size={18} />
           </button>
+          {result && (
+            <p className={`form-status ${status}`}>{result}</p>
+          )}
         </motion.form>
       </div>
 
@@ -140,6 +180,27 @@ const Contact = () => {
         }
         .submit-btn:hover {
           background: var(--primary-hover);
+        }
+        .submit-btn:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+        .form-status {
+          margin-top: 1rem;
+          font-size: 0.9rem;
+          text-align: center;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+        }
+        .form-status.success {
+          background: rgba(34, 197, 94, 0.1);
+          color: #4ade80;
+          border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        .form-status.error {
+          background: rgba(239, 68, 68, 0.1);
+          color: #f87171;
+          border: 1px solid rgba(239, 68, 68, 0.2);
         }
         @media (max-width: 768px) {
           .contact-container {

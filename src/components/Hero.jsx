@@ -33,8 +33,14 @@ const Hero = () => {
           </div>
 
           <div className="cta-group">
-            <button className="btn-primary">View Projects</button>
-            <button className="btn-secondary">Download Resume</button>
+            <a href="#projects" className="btn-primary">View Projects</a>
+            <a 
+              href="https://docs.google.com/document/d/1A4X83p1AIJtsXrJLWmAFKq8txziSdO01MPEo8p4gwHA/export?format=pdf" 
+              className="btn-secondary"
+              download="Jayanth_Srinivasan_Resume.pdf"
+            >
+              Download Resume
+            </a>
           </div>
         </motion.div>
       </div>
