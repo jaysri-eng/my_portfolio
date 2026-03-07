@@ -236,19 +236,39 @@ const Accomplishments = () => {
           border: 1px solid var(--glass-border);
         }
         @media (max-width: 900px) {
+          .achievement-card {
+            padding: 2rem 1.5rem;
+          }
           .ach-layout {
             grid-template-columns: 1fr;
             text-align: center;
+            gap: 2rem;
           }
           .ach-visual {
-            margin-bottom: 2rem;
+            margin-bottom: 0;
+          }
+          .ach-details h3 {
+            font-size: 1.75rem;
+          }
+          .ach-desc {
+            font-size: 1.1rem;
           }
           .ach-stats {
             grid-template-columns: 1fr;
+            max-width: 300px;
+            margin-inline: auto;
+          }
+          .stat-item {
+            justify-content: center;
           }
           .ach-actions {
             flex-direction: column;
             gap: 1.5rem;
+            align-items: center;
+          }
+          .ach-tags {
+            justify-content: center;
+            flex-wrap: wrap;
           }
         }
       `}} />
