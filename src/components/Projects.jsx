@@ -9,28 +9,37 @@ const Projects = () => {
       tech: ['Spring Boot', 'Stripe', 'SQL'],
       desc: 'Production-ready REST API with product management, secure checkout, and order processing.',
       icon: <Database size={24} />,
-      link: '#'
+      link: 'https://github.com/jaysri-eng/ecommerce-with-springboot'
     },
     {
       title: 'Auth & Authorization System',
       tech: ['Spring Boot', 'JWT', 'AWS'],
-      desc: 'Secure RBAC system with JWT, password encryption, and production-grade AWS deployment.',
+      desc: 'Secure RBAC system with JWT, email verification, password encryption, and AWS deployment.',
       icon: <ShieldCheck size={24} />,
-      link: '#'
+      link: 'https://github.com/jaysri-eng/complete_auth_springboot'
+    },
+    {
+      title: 'Blogging App Backend',
+      tech: ['Spring Boot', 'Spring Security', 'JWT'],
+      desc: 'Comprehensive blogging platform backend with secure user authentication and content management.',
+      icon: <Code2 size={24} />,
+      link: 'https://github.com/jaysri-eng/blog_backend'
     },
     {
       title: 'API Rate Limiting System',
       tech: ['Spring Boot', 'Redis'],
       desc: 'Dynamic rate limiting using token bucket algorithms and Redis for high performance.',
       icon: <Zap size={24} />,
-      link: '#'
+      link: '#',
+      status: 'Under Development'
     },
     {
       title: 'AI Behavioral Analysis',
       tech: ['Spring Boot', 'AI', 'ML'],
       desc: 'Backend system analyzing user thoughts and activities to detect behavioral patterns.',
       icon: <Code2 size={24} />,
-      link: '#'
+      link: '#',
+      status: 'Under Development'
     }
   ];
 
@@ -51,11 +60,17 @@ const Projects = () => {
             <div className="proj-header">
               <div className="proj-icon">{proj.icon}</div>
               <div className="proj-links">
-                <a href={proj.link} className="icon-link"><Github size={18} /></a>
-                <a href={proj.link} className="icon-link"><ExternalLink size={18} /></a>
+                {!proj.status && (
+                  <a href={proj.link} className="icon-link" target="_blank" rel="noopener noreferrer">
+                    <Github size={18} />
+                  </a>
+                )}
               </div>
             </div>
-            <h3>{proj.title}</h3>
+            <div className="proj-title-area">
+              <h3>{proj.title}</h3>
+              {proj.status && <span className="status-badge">{proj.status}</span>}
+            </div>
             <p>{proj.desc}</p>
             <div className="proj-tech">
               {proj.tech.map(t => <span key={t}>{t}</span>)}
@@ -104,9 +119,26 @@ const Projects = () => {
         .icon-link:hover {
           color: var(--text-main);
         }
+        .proj-title-area {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+          margin-bottom: 1rem;
+          flex-wrap: wrap;
+        }
+        .status-badge {
+          font-size: 0.75rem;
+          background: rgba(99, 102, 241, 0.1);
+          color: var(--primary);
+          padding: 0.2rem 0.6rem;
+          border-radius: 2rem;
+          border: 1px solid rgba(99, 102, 241, 0.2);
+          white-space: nowrap;
+        }
         .project-card h3 {
           font-size: 1.25rem;
-          margin-bottom: 1rem;
+          margin: 0;
         }
         .project-card p {
           color: var(--text-muted);
