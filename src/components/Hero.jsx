@@ -39,8 +39,8 @@ const Hero = () => {
             <div className="user-info">
               <h1 className="name-gradient">Jayanth Srinivasan</h1>
               <p className="bio">
-                Full-stack developer specialized in <span className="highlight-purple">React Native</span>, 
-                <span className="highlight-white">SpringBoot</span>, and <span className="highlight-purple">Vite</span>.
+                Full-stack developer specialized in <span className="highlight-purple">React Js, React Native</span>, 
+                <span className="highlight-white">SpringBoot</span>, and <span className="highlight-purple">Flutter</span>.
                 Building secure, scalable, and high-performance applications.
               </p>
             </div>

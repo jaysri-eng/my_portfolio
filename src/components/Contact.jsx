@@ -64,6 +64,7 @@ const Contact = () => {
               href="tel:+917358407871"
               className="info-item"
               whileHover={{ x: 5 }}
+              style={{marginTop: "1rem"}}
             >
               <Phone className="icon" size={20} />
               <div className="info-content">
@@ -71,13 +72,6 @@ const Contact = () => {
                 <span className="value">+91 7358407871</span>
               </div>
             </motion.a>
-            <motion.div className="info-item">
-              <MapPin className="icon" size={20} />
-              <div className="info-content">
-                <span className="label">location:</span>
-                <span className="value">Chennai / Remote</span>
-              </div>
-            </motion.div>
           </div>
         </motion.div>
 
