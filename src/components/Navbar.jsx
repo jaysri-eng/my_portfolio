@@ -69,48 +69,52 @@ const Navbar = () => {
       <style dangerouslySetInnerHTML={{ __html: `
         .navbar-container {
           position: fixed;
-          top: 1.5rem;
+          top: 1rem;
           left: 0;
           right: 0;
           display: flex;
-          flex-direction: column;
-          align-items: center;
+          justify-content: center;
           z-index: 1000;
           padding: 0 1rem;
-          gap: 0.5rem;
         }
         .navbar {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 0.75rem 2rem;
+          padding: 0.5rem 1.5rem;
           width: 100%;
-          max-width: 800px;
-          border-radius: 2rem;
-          position: relative;
-          z-index: 1001;
+          max-width: 900px;
+          background: #18181b;
+          border: 1px solid var(--glass-border);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+          font-family: var(--font-mono);
+          border-radius: 0.25rem;
         }
         .logo {
-          font-family: var(--font-heading);
           font-weight: 700;
-          font-size: 1.5rem;
-          color: var(--text-main);
-        }
-        .logo span {
+          font-size: 1rem;
           color: var(--primary);
+        }
+        .logo::before {
+          content: '~/';
+          color: var(--text-muted);
         }
         .nav-links {
           display: flex;
-          gap: 1.5rem;
+          gap: 2rem;
         }
         .nav-item {
-          font-size: 0.9rem;
-          font-weight: 500;
+          font-size: 0.85rem;
           color: var(--text-muted);
-          transition: color 0.3s ease;
+          text-decoration: none;
+          transition: all 0.2s;
         }
         .nav-item:hover {
           color: var(--primary);
+        }
+        .nav-item::before {
+          content: './';
+          opacity: 0.5;
         }
         .mobile-menu-btn {
           display: none;
@@ -118,40 +122,34 @@ const Navbar = () => {
           border: none;
           color: var(--text-main);
           cursor: pointer;
-          padding: 0.5rem;
         }
         .mobile-nav {
-          display: none;
-          flex-direction: column;
-          width: 100%;
-          max-width: 800px;
+          position: fixed;
+          top: 4.5rem;
+          left: 1rem;
+          right: 1rem;
+          background: #18181b;
+          border: 1px solid var(--glass-border);
           padding: 1.5rem;
+          display: flex;
+          flex-direction: column;
           gap: 1rem;
-          border-radius: 1.5rem;
+          z-index: 999;
+          font-family: var(--font-mono);
+          border-radius: 0.25rem;
         }
         .mobile-nav-item {
-          font-size: 1.1rem;
-          padding: 0.75rem 1rem;
+          font-size: 0.9rem;
           color: var(--text-main);
-          font-weight: 500;
-          border-radius: 0.75rem;
-          transition: background 0.3s;
+          text-decoration: none;
         }
-        .mobile-nav-item:hover {
-          background: rgba(255, 255, 255, 0.05);
-          color: var(--primary);
+        .mobile-nav-item::before {
+          content: '$ ';
+          color: #27c93f;
         }
-
-        @media (max-width: 640px) {
-          .desktop-nav {
-            display: none;
-          }
-          .mobile-menu-btn {
-            display: block;
-          }
-          .mobile-nav {
-            display: flex;
-          }
+        @media (max-width: 768px) {
+          .desktop-nav { display: none; }
+          .mobile-menu-btn { display: block; }
         }
       `}} />
     </motion.nav>

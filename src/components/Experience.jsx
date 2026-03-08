@@ -49,26 +49,28 @@ const Experience = () => {
   ];
 
   return (
-    <div className="experience-section">
-      <h2 className="section-title">Experience</h2>
+    <div className="experience-content">
       <div className="timeline">
         {experiences.map((exp, index) => (
           <motion.div 
             key={index}
             className="timeline-item"
-            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <div className={`timeline-content glass ${index % 2 === 0 ? 'left' : 'right'}`}>
+            <div className="timeline-dot"></div>
+            <div className="exp-card">
               <div className="exp-header">
-                <h3>{exp.role}</h3>
-                <h4 className="company-name">{exp.company}</h4>
-              </div>
-              <div className="exp-meta">
-                <span><Calendar size={14} /> {exp.period}</span>
-                <span><MapPin size={14} /> {exp.location}</span>
+                <h3 className="role-title">{exp.role}</h3>
+                <div className="exp-meta">
+                  <span className="company-name">{exp.company}</span>
+                  <span className="separator">|</span>
+                  <span className="duration">{exp.period}</span>
+                  <span className="separator">|</span>
+                  <span className="location">{exp.location}</span>
+                </div>
               </div>
               <ul className="exp-list">
                 {exp.points.map((point, i) => (
@@ -81,98 +83,92 @@ const Experience = () => {
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
+        .experience-content {
+          padding-top: 2rem;
+        }
         .timeline {
           position: relative;
-          max-width: 1000px;
-          margin: 0 auto;
+          max-width: 900px;
+          padding-left: 2rem;
         }
-        .timeline::after {
+        .timeline::before {
           content: '';
           position: absolute;
-          width: 2px;
-          background: var(--glass-border);
+          left: 0;
           top: 0;
           bottom: 0;
-          left: 50%;
-          transform: translateX(-50%);
+          width: 1px;
+          background: var(--glass-border);
         }
         .timeline-item {
-          padding: 1rem 0;
-          width: 100%;
-          display: flex;
-          justify-content: flex-end;
           position: relative;
+          margin-bottom: 3rem;
         }
-        .timeline-item:nth-child(even) {
-          justify-content: flex-start;
-        }
-        .timeline-content {
-          width: 45%;
-          padding: 2rem;
-          position: relative;
-        }
-        .timeline-content::after {
-          content: '';
+        .timeline-dot {
           position: absolute;
-          width: 12px;
-          height: 12px;
-          background: var(--primary);
+          left: -2rem;
+          top: 0.5rem;
+          width: 11px;
+          height: 11px;
+          background: #000;
+          border: 2px solid var(--primary);
           border-radius: 50%;
-          top: 50%;
-          transform: translateY(-50%);
+          transform: translateX(-50%);
           z-index: 10;
         }
-        .timeline-content.left::after {
-          right: -5.5%;
+        .exp-card {
+          padding: 2rem;
+          background: transparent;
+          border: 1px solid var(--glass-border);
+          border-radius: 0.5rem;
+          transition: all 0.2s ease;
+          font-family: var(--font-mono);
         }
-        .timeline-content.right::after {
-          left: -5.5%;
+        .exp-card:hover {
+          border-color: var(--primary);
+          box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
         }
-        .company-name {
-          color: var(--primary);
+        .role-title {
+          font-size: 1.25rem;
+          color: var(--text-main);
+          font-weight: 700;
           margin-bottom: 0.5rem;
         }
         .exp-meta {
           display: flex;
-          gap: 1rem;
-          font-size: 0.8rem;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 0.75rem;
+          font-size: 0.85rem;
           color: var(--text-muted);
           margin-bottom: 1.5rem;
         }
-        .exp-meta span {
-          display: flex;
-          align-items: center;
-          gap: 0.3rem;
+        .company-name {
+          color: var(--primary);
+          font-weight: 600;
         }
         .exp-list {
           list-style: none;
+          padding: 0;
         }
         .exp-list li {
-          margin-bottom: 0.5rem;
-          font-size: 0.9rem;
+          margin-bottom: 0.75rem;
+          font-size: 0.95rem;
+          line-height: 1.6;
           position: relative;
-          padding-left: 1.2rem;
+          padding-left: 1.5rem;
+          color: var(--text-muted);
         }
         .exp-list li::before {
-          content: '→';
+          content: '>';
           position: absolute;
           left: 0;
           color: var(--primary);
+          font-weight: bold;
         }
-        @media (max-width: 768px) {
-          .timeline::after {
-            left: 20px;
-          }
-          .timeline-item, .timeline-item:nth-child(even) {
-            justify-content: flex-start;
-            padding-left: 45px;
-          }
-          .timeline-content {
-            width: 100%;
-          }
-          .timeline-content.left::after, .timeline-content.right::after {
-            left: -32px;
-          }
+        @media (max-width: 600px) {
+          .exp-meta { gap: 0.5rem; }
+          .separator { display: none; }
         }
       `}} />
     </div>

@@ -15,30 +15,30 @@ const Accomplishments = () => {
       ],
       tags: ["Google Play Store", "Teacher Approved", "Flutter"],
       badge: "Google Teacher Approved",
-      link: "https://play.google.com/store/apps/details?id=com.jayanthsrinivasan.signlangapp&hl=en_IN"
+      link: import.meta.env.VITE_SIGNAPP_PLAYSTORE_URL
     }
   ];
 
   return (
-    <div className="accomplishments-section" id="accomplishments">
-      <div className="attention-catcher">
-        <motion.div
-           initial={{ opacity: 0, scale: 0.9 }}
-           whileInView={{ opacity: 1, scale: 1 }}
-           viewport={{ once: true }}
-           transition={{ duration: 0.8 }}
-        >
-          <span className="accent-text">Major Success</span>
-          <h2 className="section-title">Global Impact</h2>
-        </motion.div>
+    <div className="accomplishments-section terminal-section" id="accomplishments">
+      <div className="terminal-header-bar">
+        <div className="terminal-dots">
+          <span className="dot red"></span>
+          <span className="dot yellow"></span>
+          <span className="dot green"></span>
+        </div>
       </div>
+      <h2 className="section-title">
+        <span className="terminal-prompt">jayanth@portfolio:~$</span>
+        <span>./show_global_impact.sh</span>
+      </h2>
 
       <div className="achievements-container">
         {achievements.map((ach, idx) => (
           <motion.div 
             key={idx}
-            className="achievement-card glass highlight-card"
-            initial={{ opacity: 0, y: 50 }}
+            className="achievement-card"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -85,35 +85,26 @@ const Accomplishments = () => {
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
-        .accomplishments-section {
-          padding-top: 4rem;
-        }
-        .attention-catcher {
-          text-align: center;
-          margin-bottom: 4rem;
-        }
-        .accent-text {
-          color: var(--primary);
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-          font-size: 0.9rem;
-          margin-bottom: 1rem;
-          display: block;
-        }
         .achievements-container {
           max-width: 1000px;
           margin: 0 auto;
         }
         .achievement-card {
-          padding: 3.5rem;
+          padding: 3rem;
           position: relative;
           overflow: hidden;
-          border-left: 4px solid var(--primary);
+          background: transparent;
+          border: 1px solid var(--glass-border);
+          border-radius: 0.75rem;
+          transition: all 0.3s ease;
+        }
+        .achievement-card:hover {
+          border-color: var(--primary);
+          box-shadow: 0 0 30px rgba(168, 85, 247, 0.15);
         }
         .ach-layout {
           display: grid;
-          grid-template-columns: 250px 1fr;
+          grid-template-columns: 200px 1fr;
           gap: 3rem;
         }
         .ach-visual {
@@ -123,17 +114,20 @@ const Accomplishments = () => {
           gap: 1.5rem;
         }
         .app-icon-container {
-          width: 180px;
-          height: 180px;
-          background: rgba(255, 255, 255, 0.03);
+          width: 150px;
+          height: 150px;
+          background: rgba(255, 255, 255, 0.02);
           border: 1px solid var(--glass-border);
-          border-radius: 2.5rem;
+          border-radius: 1.5rem;
           display: flex;
           align-items: center;
           justify-content: center;
           overflow: hidden;
           position: relative;
-          box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+          transition: transform 0.3s ease;
+        }
+        .achievement-card:hover .app-icon-container {
+          transform: translateY(-5px);
         }
         .app-icon {
           width: 100%;
@@ -144,32 +138,34 @@ const Accomplishments = () => {
           display: inline-flex;
           align-items: center;
           gap: 0.5rem;
-          background: rgba(16, 185, 129, 0.1);
-          color: #10b981;
-          padding: 0.5rem 1.2rem;
-          border-radius: 2rem;
-          font-size: 0.85rem;
-          font-weight: 600;
-          border: 1px solid rgba(16, 185, 129, 0.2);
-          white-space: nowrap;
+          background: rgba(34, 197, 94, 0.1);
+          color: #4ade80;
+          padding: 0.5rem 1rem;
+          border-radius: 0.25rem;
+          font-size: 0.75rem;
+          font-weight: 700;
+          border: 1px solid rgba(34, 197, 94, 0.2);
+          text-transform: lowercase;
+          font-family: var(--font-mono);
         }
         .ach-details h3 {
-          font-size: 2.2rem;
+          font-size: 2rem;
           margin-bottom: 1rem;
-          background: linear-gradient(to right, #fff, #94a3b8);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          font-family: var(--font-mono);
+          font-weight: 800;
+          color: var(--text-main);
         }
         .ach-desc {
-          color: var(--text-main);
-          font-size: 1.2rem;
-          font-weight: 500;
+          color: var(--primary);
+          font-size: 1.1rem;
+          font-weight: 600;
           margin-bottom: 1rem;
+          font-family: var(--font-mono);
         }
         .ach-long-desc {
           color: var(--text-muted);
-          font-size: 1rem;
-          line-height: 1.7;
+          font-size: 0.95rem;
+          line-height: 1.8;
           margin-bottom: 2.5rem;
         }
         .ach-stats {
@@ -180,11 +176,11 @@ const Accomplishments = () => {
         }
         .stat-item {
           display: flex;
-          gap: 1.2rem;
+          gap: 1rem;
           align-items: center;
           background: rgba(255, 255, 255, 0.02);
-          padding: 1.2rem;
-          border-radius: 1rem;
+          padding: 1rem;
+          border-radius: 0.4rem;
           border: 1px solid rgba(255, 255, 255, 0.05);
         }
         .stat-icon {
@@ -192,13 +188,17 @@ const Accomplishments = () => {
         }
         .stat-value {
           display: block;
-          font-size: 1.4rem;
-          font-weight: 700;
+          font-size: 1.5rem;
+          font-weight: 800;
           color: var(--text-main);
+          font-family: var(--font-mono);
         }
         .stat-label {
-          font-size: 0.8rem;
+          font-size: 0.75rem;
           color: var(--text-muted);
+          font-weight: 500;
+          text-transform: lowercase;
+          font-family: var(--font-mono);
         }
         .ach-actions {
           display: flex;
@@ -210,18 +210,19 @@ const Accomplishments = () => {
         .play-store-btn {
           background: var(--primary);
           color: white;
-          padding: 0.8rem 1.8rem;
-          border-radius: 0.75rem;
-          font-weight: 600;
+          padding: 0.75rem 1.5rem;
+          border-radius: 0.4rem;
+          font-weight: 700;
           display: flex;
           align-items: center;
           gap: 0.75rem;
-          transition: all 0.3s;
+          transition: all 0.2s;
+          font-family: var(--font-mono);
+          font-size: 0.9rem;
         }
         .play-store-btn:hover {
-          background: var(--primary-hover);
-          transform: translateY(-2px);
-          box-shadow: 0 10px 20px -10px var(--primary);
+          background: #9333ea;
+          box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
         }
         .ach-tags {
           display: flex;
@@ -231,44 +232,22 @@ const Accomplishments = () => {
           font-size: 0.8rem;
           color: var(--text-muted);
           background: rgba(255, 255, 255, 0.05);
-          padding: 0.4rem 1rem;
-          border-radius: 0.5rem;
+          padding: 0.4rem 0.8rem;
+          border-radius: 0.25rem;
           border: 1px solid var(--glass-border);
+          font-family: var(--font-mono);
         }
         @media (max-width: 900px) {
-          .achievement-card {
-            padding: 2rem 1.5rem;
-          }
           .ach-layout {
             grid-template-columns: 1fr;
             text-align: center;
-            gap: 2rem;
-          }
-          .ach-visual {
-            margin-bottom: 0;
-          }
-          .ach-details h3 {
-            font-size: 1.75rem;
-          }
-          .ach-desc {
-            font-size: 1.1rem;
           }
           .ach-stats {
             grid-template-columns: 1fr;
-            max-width: 300px;
-            margin-inline: auto;
-          }
-          .stat-item {
-            justify-content: center;
           }
           .ach-actions {
             flex-direction: column;
-            gap: 1.5rem;
             align-items: center;
-          }
-          .ach-tags {
-            justify-content: center;
-            flex-wrap: wrap;
           }
         }
       `}} />

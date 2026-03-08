@@ -33,8 +33,7 @@ const Skills = () => {
   };
 
   return (
-    <div className="skills-section">
-      <h2 className="section-title">Technical Expertise</h2>
+    <div className="skills-content">
       <div className="skills-wrapper">
         {skillCategories.map((cat, i) => (
           <div key={i} className="skill-cat">
@@ -50,7 +49,7 @@ const Skills = () => {
                 <motion.span 
                   key={skill} 
                   variants={item}
-                  className="skill-chip glass"
+                  className="skill-chip"
                 >
                   {skill}
                 </motion.span>
@@ -61,37 +60,54 @@ const Skills = () => {
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
+        .skills-content {
+          padding: 2rem 0;
+        }
         .skills-wrapper {
           display: flex;
           flex-direction: column;
-          gap: 3rem;
-          max-width: 900px;
+          gap: 4rem;
+          max-width: 1000px;
           margin: 0 auto;
         }
         .skill-cat h3 {
-          font-size: 1.5rem;
-          margin-bottom: 1.5rem;
-          color: var(--primary);
+          font-size: 1.1rem;
+          margin-bottom: 2rem;
+          color: var(--text-muted);
           text-align: center;
+          text-transform: lowercase;
+          letter-spacing: 0.1em;
+          font-weight: 600;
+          font-family: var(--font-mono);
+        }
+        .skill-cat h3::before {
+          content: '$ ls ';
+          color: #27c93f;
         }
         .chips-container {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
-          gap: 1rem;
+          gap: 1.25rem;
         }
         .skill-chip {
-          padding: 0.8rem 1.5rem;
-          border-radius: 100px;
-          font-weight: 500;
-          font-size: 0.95rem;
-          transition: all 0.3s;
+          padding: 0.75rem 1.75rem;
+          border-radius: 0.4rem;
+          font-weight: 600;
+          font-size: 1rem;
+          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           cursor: default;
+          background: transparent;
+          border: 1px solid var(--glass-border);
+          color: var(--text-muted);
+          font-family: var(--font-mono);
         }
         .skill-chip:hover {
           background: var(--primary);
-          color: white;
+          color: #fff;
           border-color: var(--primary);
+          transform: translateY(-2px);
+          box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
         }
       `}} />
     </div>

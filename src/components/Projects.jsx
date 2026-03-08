@@ -9,21 +9,21 @@ const Projects = () => {
       tech: ['Spring Boot', 'Stripe', 'SQL'],
       desc: 'Production-ready REST API with product management, secure checkout, and order processing.',
       icon: <Database size={24} />,
-      link: 'https://github.com/jaysri-eng/ecommerce-with-springboot'
+      link: import.meta.env.VITE_PROJECT_ECOMMERCE_URL
     },
     {
       title: 'Auth & Authorization System',
       tech: ['Spring Boot', 'JWT', 'AWS'],
       desc: 'Secure RBAC system with JWT, email verification, password encryption, and AWS deployment.',
       icon: <ShieldCheck size={24} />,
-      link: 'https://github.com/jaysri-eng/complete_auth_springboot'
+      link: import.meta.env.VITE_PROJECT_AUTH_URL
     },
     {
       title: 'Blogging App Backend',
       tech: ['Spring Boot', 'Spring Security', 'JWT'],
       desc: 'Comprehensive blogging platform backend with secure user authentication and content management.',
       icon: <Code2 size={24} />,
-      link: 'https://github.com/jaysri-eng/blog_backend'
+      link: import.meta.env.VITE_PROJECT_BLOG_URL
     },
     {
       title: 'API Rate Limiting System',
@@ -44,15 +44,14 @@ const Projects = () => {
   ];
 
   return (
-    <div className="projects-section" id="projects">
-      <h2 className="section-title">Featured Projects</h2>
+    <div className="projects-content">
       <div className="projects-grid">
         {projects.map((proj, index) => (
           <motion.div 
             key={index}
-            className="project-card glass"
-            whileHover={{ y: -10 }}
-            initial={{ opacity: 0, scale: 0.9 }}
+            className="project-card"
+            whileHover={{ y: -5 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
@@ -80,84 +79,104 @@ const Projects = () => {
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
+        .projects-content {
+          padding-top: 2rem;
+        }
         .projects-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
           gap: 2rem;
-          margin-top: 3rem;
         }
         .project-card {
-          padding: 2rem;
+          padding: 2.5rem;
           display: flex;
           flex-direction: column;
           height: 100%;
-          transition: border-color 0.3s;
+          background: transparent;
+          border: 1px solid var(--glass-border);
+          border-radius: 0.5rem;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+          font-family: var(--font-mono);
         }
         .project-card:hover {
           border-color: var(--primary);
+          box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
         }
         .proj-header {
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
-          margin-bottom: 1.5rem;
+          margin-bottom: 2rem;
         }
         .proj-icon {
           color: var(--primary);
-          padding: 0.75rem;
-          background: rgba(99, 102, 241, 0.1);
-          border-radius: 0.75rem;
+          padding: 1rem;
+          background: rgba(168, 85, 247, 0.05);
+          border-radius: 0.5rem;
+          border: 1px solid rgba(168, 85, 247, 0.1);
         }
         .proj-links {
           display: flex;
-          gap: 0.75rem;
+          gap: 1rem;
         }
         .icon-link {
           color: var(--text-muted);
-          transition: color 0.3s;
+          transition: all 0.3s;
         }
         .icon-link:hover {
-          color: var(--text-main);
+          color: var(--primary);
+          transform: scale(1.1);
         }
         .proj-title-area {
           display: flex;
-          align-items: center;
+          align-items: baseline;
           justify-content: space-between;
           gap: 1rem;
           margin-bottom: 1rem;
-          flex-wrap: wrap;
         }
         .status-badge {
-          font-size: 0.75rem;
-          background: rgba(99, 102, 241, 0.1);
+          font-size: 0.7rem;
+          background: rgba(168, 85, 247, 0.1);
           color: var(--primary);
-          padding: 0.2rem 0.6rem;
-          border-radius: 2rem;
-          border: 1px solid rgba(99, 102, 241, 0.2);
-          white-space: nowrap;
+          padding: 0.25rem 0.75rem;
+          border-radius: 0.25rem;
+          border: 1px solid rgba(168, 85, 247, 0.2);
+          text-transform: lowercase;
+          font-family: var(--font-mono);
         }
         .project-card h3 {
           font-size: 1.25rem;
           margin: 0;
+          color: var(--text-main);
+          font-family: var(--font-mono);
+          font-weight: 700;
         }
         .project-card p {
           color: var(--text-muted);
           font-size: 0.95rem;
-          margin-bottom: 1.5rem;
+          line-height: 1.6;
+          margin-bottom: 2rem;
           flex-grow: 1;
         }
         .proj-tech {
           display: flex;
           flex-wrap: wrap;
-          gap: 0.5rem;
+          gap: 0.75rem;
         }
         .proj-tech span {
-          background: rgba(255, 255, 255, 0.05);
+          background: rgba(255, 255, 255, 0.03);
           color: var(--text-muted);
-          padding: 0.2rem 0.6rem;
-          border-radius: 0.3rem;
+          padding: 0.4rem 0.8rem;
+          border-radius: 0.25rem;
           font-size: 0.8rem;
-          font-weight: 500;
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          transition: all 0.3s;
+        }
+        .project-card:hover .proj-tech span {
+          border-color: rgba(168, 85, 247, 0.2);
+          color: var(--text-main);
         }
       `}} />
     </div>

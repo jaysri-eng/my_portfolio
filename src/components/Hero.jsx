@@ -1,121 +1,151 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Mail, Terminal, ChevronRight } from 'lucide-react';
 
 const Hero = () => {
-  return (
-    <div className="hero">
-      <div className="hero-content">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="badge">Available for opportunities</span>
-          <h1>
-            Hi, I'm <span className="highlight">Jayanth Srinivasan</span>
-          </h1>
-          <p className="subtitle">
-            MTech Software Engineering Graduate & Full-Stack Developer specializing in 
-            <span className="accent"> React Native</span>, <span className="accent">Vite</span>, and <span className="accent">Spring Boot</span>.
-          </p>
-          
-          <div className="social-links">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-btn">
-              <Github size={20} />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-btn">
-              <Linkedin size={20} />
-            </a>
-            <a href="mailto:jayanthsrinivasan1011@gmail.com" className="social-btn">
-              <Mail size={20} />
-            </a>
-          </div>
+  const [text, setText] = useState('');
+  const fullText = "whoami";
+  const [showDescription, setShowDescription] = useState(false);
 
-          <div className="cta-group">
-            <a href="#projects" className="btn-primary">View Projects</a>
-            <a 
-              href="https://docs.google.com/document/d/1A4X83p1AIJtsXrJLWmAFKq8txziSdO01MPEo8p4gwHA/export?format=pdf" 
-              className="btn-secondary"
-              download="Jayanth_Srinivasan_Resume.pdf"
-            >
-              Download Resume
-            </a>
-          </div>
-        </motion.div>
+  useEffect(() => {
+    let i = 0;
+    const timer = setInterval(() => {
+      setText(fullText.slice(0, i));
+      i++;
+      if (i > fullText.length) {
+        clearInterval(timer);
+        setTimeout(() => setShowDescription(true), 500);
+      }
+    }, 150);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="hero-content" id="hero">
+      <div className="hero-terminal-body">
+        <div className="command-line">
+          <span className="prompt">jayanth@portfolio:~$</span>
+          <span className="typed-text">{text}</span>
+          <span className="cursor"></span>
+        </div>
+        
+        {showDescription && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="terminal-output"
+          >
+            <div className="user-info">
+              <h1 className="name-gradient">Jayanth Srinivasan</h1>
+              <p className="bio">
+                Full-stack developer specialized in <span className="highlight-purple">React Native</span>, 
+                <span className="highlight-white">SpringBoot</span>, and <span className="highlight-purple">Vite</span>.
+                Building secure, scalable, and high-performance applications.
+              </p>
+            </div>
+
+            <div className="terminal-actions">
+              <div className="social-links">
+                <a href={import.meta.env.VITE_GITHUB_URL} target="_blank" rel="noopener noreferrer" className="social-icon">
+                  <Github size={20} />
+                </a>
+                <a href={import.meta.env.VITE_LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="social-icon">
+                  <Linkedin size={20} />
+                </a>
+                <a href="mailto:jayanthsrinivasan1011@gmail.com" className="social-icon">
+                  <Mail size={20} />
+                </a>
+              </div>
+              <div className="cta-buttons">
+                <a onClick={() => window.location.href = '#projects'} className="btn-primary">
+                  View Projects
+                </a>
+                <a onClick={() => window.location.href = import.meta.env.VITE_RESUME_URL} className="btn-secondary">
+                  Download Resume
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
-        .hero {
-          height: 100vh;
+        .hero-content {
+          padding: 4rem 2rem;
+          min-height: 80vh;
           display: flex;
           align-items: center;
           justify-content: center;
-          text-align: center;
-          position: relative;
+          font-family: var(--font-mono);
         }
-        .hero-content {
-          max-width: 800px;
+        .hero-terminal-body {
+          width: 100%;
+          max-width: 900px;
         }
-        .badge {
-          display: inline-block;
-          padding: 0.25rem 0.75rem;
-          background: rgba(99, 102, 241, 0.1);
-          color: var(--primary);
-          border: 1px solid rgba(99, 102, 241, 0.2);
-          border-radius: 2rem;
-          font-size: 0.8rem;
-          font-weight: 600;
-          margin-bottom: 1.5rem;
+        .command-line {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          font-size: 1.1rem;
+          margin-bottom: 2.5rem;
         }
-        h1 {
+        .prompt {
+          color: #27c93f;
+          font-weight: bold;
+        }
+        .typed-text {
+          color: #fff;
+        }
+        .cursor {
+          width: 8px;
+          height: 1.25rem;
+          background: #fff;
+          animation: blink 1s infinite;
+        }
+        @keyframes blink {
+          50% { opacity: 0; }
+        }
+        .name-gradient {
           font-size: clamp(2.5rem, 8vw, 4.5rem);
           margin-bottom: 1.5rem;
-          line-height: 1.1;
-        }
-        .highlight {
-          background: linear-gradient(to right, var(--primary), #a855f7);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-        .subtitle {
-          font-size: clamp(1rem, 3vw, 1.25rem);
-          color: var(--text-muted);
-          margin-bottom: 2rem;
-          max-width: 600px;
-          margin-inline: auto;
-        }
-        .accent {
           color: var(--text-main);
-          font-weight: 500;
+          font-weight: 800;
+          font-family: var(--font-heading);
+        }
+        .bio {
+          color: var(--text-muted);
+          line-height: 1.8;
+          max-width: 650px;
+          margin-bottom: 3rem;
+          font-size: 1.05rem;
+        }
+        .highlight-purple { color: var(--primary); font-weight: 600; }
+        .highlight-white { color: #fff; font-weight: 600; }
+        
+        .terminal-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2.5rem;
+          align-items: center;
         }
         .social-links {
           display: flex;
-          justify-content: center;
-          gap: 1rem;
-          margin-bottom: 2.5rem;
+          gap: 1.5rem;
         }
-        .social-btn {
-          width: 45px;
-          height: 45px;
+        .social-icon {
+          color: var(--text-muted);
+          transition: all 0.2s;
+        }
+        .social-icon:hover {
+          color: var(--primary);
+          transform: translateY(-2px);
+        }
+        .cta-buttons {
           display: flex;
+          gap: 1.25rem;
           align-items: center;
           justify-content: center;
-          border-radius: 50%;
-          background: var(--bg-card);
-          border: 1px solid var(--glass-border);
-          color: var(--text-muted);
-          transition: all 0.3s ease;
-        }
-        .social-btn:hover {
-          color: var(--primary);
-          border-color: var(--primary);
-          transform: translateY(-3px);
-        }
-        .cta-group {
-          display: flex;
-          justify-content: center;
-          gap: 1rem;
         }
         .btn-primary {
           background: var(--primary);
@@ -127,7 +157,7 @@ const Hero = () => {
           transition: background 0.3s;
         }
         .btn-primary:hover {
-          background: var(--primary-hover);
+          background: var(--primary);
         }
         .btn-secondary {
           background: transparent;
@@ -148,3 +178,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
