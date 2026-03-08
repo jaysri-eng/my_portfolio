@@ -638,6 +638,15 @@ Error generating stack: `+s.message+`
           font-family: var(--font-mono);
           font-weight: 800;
           color: var(--text-main);
+          word-break: break-word;
+        }
+        .section-title {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          align-items: baseline;
+          word-break: break-all;
+          font-size: clamp(1.2rem, 5vw, 2rem);
         }
         .ach-desc {
           color: var(--primary);
@@ -847,9 +856,35 @@ Error generating stack: `+s.message+`
         @media (max-width: 800px) {
           .contact-container {
             grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+          .info-item {
+            padding: 1rem;
+            gap: 1rem;
+          }
+          .info-content .value {
+            font-size: 0.85rem;
+            word-break: break-all;
           }
         }
       `}})]})};function Jw(){const[e,t]=A.useState("whoami");return A.useEffect(()=>{const n={hero:"whoami",accomplishments:"./show_global_impact.sh",experience:'history | grep "employment"',projects:"ls ./featured_projects",skills:"cat technical_expertise.md",contact:'mail -s "get_in_touch" contact@jayanth.dev'},r={root:document.querySelector(".terminal-window-body"),threshold:.2},i=new IntersectionObserver(s=>{s.forEach(o=>{if(o.isIntersecting){const a=o.target.id;n[a]&&t(n[a])}})},r);return document.querySelectorAll("section, .hero-section").forEach(s=>{i.observe(s)}),()=>i.disconnect()},[]),y.jsxs("div",{className:"app",children:[y.jsx(Hw,{}),y.jsxs("div",{className:"unified-terminal",children:[y.jsxs("div",{className:"terminal-header-fixed",children:[y.jsxs("div",{className:"terminal-dots",children:[y.jsx("span",{className:"dot red"}),y.jsx("span",{className:"dot yellow"}),y.jsx("span",{className:"dot green"})]}),y.jsxs("div",{className:"current-command",children:[y.jsx("span",{className:"terminal-prompt",children:"jayanth@portfolio:~$"}),y.jsx("span",{className:"command",children:e})]})]}),y.jsxs("div",{className:"terminal-window-body",children:[y.jsx("section",{id:"hero",className:"hero-section",children:y.jsx(Kw,{})}),y.jsx("section",{id:"accomplishments",className:"terminal-section-lite",children:y.jsx(Xw,{})}),y.jsx("section",{id:"experience",className:"terminal-section-lite",children:y.jsx(bw,{})}),y.jsx("section",{id:"projects",className:"terminal-section-lite",children:y.jsx(Gw,{})}),y.jsx("section",{id:"skills",className:"terminal-section-lite",children:y.jsx(Qw,{})}),y.jsx("section",{id:"contact",className:"terminal-section-lite",children:y.jsx(qw,{})}),y.jsxs("footer",{className:"terminal-footer",children:[y.jsx("p",{children:"jayanth@portfolio:~$ history | tail -n 1"}),y.jsxs("p",{children:["© ",new Date().getFullYear()," R. Jayanth Srinivasan. exit 0;"]})]})]})]}),y.jsx("style",{dangerouslySetInnerHTML:{__html:`
+        .terminal-header-fixed {
+          flex-wrap: nowrap;
+          overflow: hidden;
+        }
+        .current-command {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+          font-size: clamp(0.7rem, 3vw, 0.9rem);
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        .command {
+          color: var(--primary);
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
         .terminal-footer {
           padding: 4rem 2rem;
           text-align: center;
