@@ -412,12 +412,20 @@ Error generating stack: `+s.message+`
         }
       `}})]})},Gw=()=>{const e=[{title:"E-Commerce Backend API",tech:["Spring Boot","Stripe","SQL"],desc:"Production-ready REST API with product management, secure checkout, and order processing.",icon:y.jsx(Rw,{size:24}),link:"https://github.com/jaysri-eng/ecommerce-with-springboot"},{title:"Auth & Authorization System",tech:["Spring Boot","JWT","AWS"],desc:"Secure RBAC system with JWT, email verification, password encryption, and AWS deployment.",icon:y.jsx(Ow,{size:24}),link:"https://github.com/jaysri-eng/complete_auth_springboot"},{title:"Blogging App Backend",tech:["Spring Boot","Spring Security","JWT"],desc:"Comprehensive blogging platform backend with secure user authentication and content management.",icon:y.jsx(Of,{size:24}),link:"https://github.com/jaysri-eng/blog_backend"},{title:"API Rate Limiting System",tech:["Spring Boot","Redis"],desc:"Dynamic rate limiting using token bucket algorithms and Redis for high performance.",icon:y.jsx(Ww,{size:24}),link:"#",status:"Under Development"},{title:"AI Behavioral Analysis",tech:["Spring Boot","AI","ML"],desc:"Backend system analyzing user thoughts and activities to detect behavioral patterns.",icon:y.jsx(Of,{size:24}),link:"#",status:"Under Development"}];return y.jsxs("div",{className:"projects-content",children:[y.jsx("div",{className:"projects-grid",children:e.map((t,n)=>y.jsxs(je.div,{className:"project-card",whileHover:{y:-5},initial:{opacity:0,scale:.95},whileInView:{opacity:1,scale:1},viewport:{once:!0},transition:{delay:n*.1},children:[y.jsxs("div",{className:"proj-header",children:[y.jsx("div",{className:"proj-icon",children:t.icon}),y.jsx("div",{className:"proj-links",children:!t.status&&y.jsx("a",{href:t.link,className:"icon-link",target:"_blank",rel:"noopener noreferrer",children:y.jsx(jm,{size:18})})})]}),y.jsxs("div",{className:"proj-title-area",children:[y.jsx("h3",{children:t.title}),t.status&&y.jsx("span",{className:"status-badge",children:t.status})]}),y.jsx("p",{children:t.desc}),y.jsx("div",{className:"proj-tech",children:t.tech.map(r=>y.jsx("span",{children:r},r))})]},n))}),y.jsx("style",{dangerouslySetInnerHTML:{__html:`
         .projects-content {
-          padding-top: 2rem;
+          padding-top: 1rem;
         }
         .projects-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 1.5rem;
+        }
+        @media (max-width: 480px) {
+          .projects-grid {
+            grid-template-columns: 1fr;
+          }
+          .project-card {
+            padding: 1.5rem;
+          }
         }
         .project-card {
           padding: 2.5rem;
@@ -714,16 +722,33 @@ Error generating stack: `+s.message+`
           font-family: var(--font-mono);
         }
         @media (max-width: 900px) {
+          .achievement-card {
+            padding: 1.5rem;
+          }
           .ach-layout {
             grid-template-columns: 1fr;
             text-align: center;
+            gap: 2rem;
+          }
+          .app-icon-container {
+            width: 120px;
+            height: 120px;
+          }
+          .ach-details h3 {
+            font-size: 1.5rem;
           }
           .ach-stats {
             grid-template-columns: 1fr;
+            gap: 1rem;
           }
           .ach-actions {
             flex-direction: column;
             align-items: center;
+            gap: 1.5rem;
+          }
+          .ach-tags {
+            justify-content: center;
+            flex-wrap: wrap;
           }
         }
       `}})]})},Zw="7312ed69-b713-4f94-a9cd-146ecd0aa28b",qw=()=>{const[e,t]=Mo.useState(""),[n,r]=Mo.useState("idle"),i=async s=>{s.preventDefault(),r("loading"),t("Sending...");const o=new FormData(s.target);o.append("access_key",Zw);try{const l=await(await fetch("https://api.web3forms.com/submit",{method:"POST",body:o})).json();l.success?(r("success"),t("Message sent successfully!"),s.target.reset()):(console.log("Error",l),r("error"),t(l.message))}catch(a){console.log("Error",a),r("error"),t("Something went wrong. Please try again.")}};return y.jsxs("div",{className:"contact-content",children:[y.jsxs("div",{className:"contact-container",children:[y.jsx(je.div,{className:"contact-info",initial:{opacity:0,x:-20},whileInView:{opacity:1,x:0},viewport:{once:!0},children:y.jsxs("div",{className:"info-items",children:[y.jsxs(je.a,{href:"mailto:jayanthsrinivasan1011@gmail.com",className:"info-item",whileHover:{x:5},children:[y.jsx(Am,{className:"icon",size:20}),y.jsxs("div",{className:"info-content",children:[y.jsx("span",{className:"label",children:"email:"}),y.jsx("span",{className:"value",children:"jayanthsrinivasan1011@gmail.com"})]})]}),y.jsxs(je.a,{href:"tel:+917358407871",className:"info-item",whileHover:{x:5},children:[y.jsx(Iw,{className:"icon",size:20}),y.jsxs("div",{className:"info-content",children:[y.jsx("span",{className:"label",children:"phone:"}),y.jsx("span",{className:"value",children:"+91 7358407871"})]})]}),y.jsxs(je.div,{className:"info-item",children:[y.jsx(_w,{className:"icon",size:20}),y.jsxs("div",{className:"info-content",children:[y.jsx("span",{className:"label",children:"location:"}),y.jsx("span",{className:"value",children:"Chennai / Remote"})]})]})]})}),y.jsxs(je.form,{onSubmit:i,className:"contact-form",initial:{opacity:0,x:20},whileInView:{opacity:1,x:0},viewport:{once:!0},children:[y.jsx("div",{className:"form-group",children:y.jsx("input",{type:"text",name:"name",placeholder:"name",required:!0})}),y.jsx("div",{className:"form-group",children:y.jsx("input",{type:"email",name:"email",placeholder:"email",required:!0})}),y.jsxs("div",{className:"form-group",children:[y.jsx("input",{name:"subject",type:"hidden",value:"New Portfolio Message"}),y.jsx("textarea",{name:"message",rows:"5",placeholder:"message",required:!0})]}),y.jsxs("button",{type:"submit",className:"submit-btn",disabled:n==="loading",children:[n==="loading"?"Sending...":"Send Message"," ",y.jsx(Fw,{size:18})]}),e&&y.jsxs("p",{className:`form-status ${n}`,children:[y.jsx("span",{className:"terminal-prompt",children:">"})," ",e]})]})]}),y.jsx("style",{dangerouslySetInnerHTML:{__html:`
