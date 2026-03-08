@@ -49,25 +49,27 @@ body {
     max-width: 1200px;
     margin: 1rem auto;
     flex: 1;
-    /* Fill remaining space */
     display: flex;
     flex-direction: column;
     position: relative;
     box-shadow: 0 40px 100px -20px rgba(168, 85, 247, 0.2);
     overflow: hidden;
-    width: calc(100% - 2rem);
+    width: calc(100% - 1.5rem);
+    /* Slightly more breathable on mobile */
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 768px) {
     .unified-terminal {
-        margin: 1rem;
-        width: calc(100% - 2rem);
+        margin: 0.75rem auto;
+        width: calc(100% - 1rem);
+        /* Tighter for small screens */
     }
 }
 
 .terminal-header-fixed {
     background: #18181b;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1rem;
+    /* Reduced padding for mobile */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -79,17 +81,27 @@ body {
 
 .terminal-window-body {
     padding: 0;
-    /* Hero will handle its own padding */
     overflow-y: auto;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
     flex: 1;
     scroll-behavior: smooth;
 }
 
 .terminal-section-lite {
-    padding: 6rem 2rem;
+    padding: 5rem 1.5rem;
+    /* Reduced padding from 6rem 2rem */
     border-bottom: 1px dashed var(--glass-border);
     max-width: 1000px;
     margin: 0 auto;
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+    .terminal-section-lite {
+        padding: 3rem 1rem;
+        /* Even tighter for mobile */
+    }
 }
 
 /* ...rest of existing styles optimized... */

@@ -238,16 +238,33 @@ const Accomplishments = () => {
           font-family: var(--font-mono);
         }
         @media (max-width: 900px) {
+          .achievement-card {
+            padding: 1.5rem;
+          }
           .ach-layout {
             grid-template-columns: 1fr;
             text-align: center;
+            gap: 2rem;
+          }
+          .app-icon-container {
+            width: 120px;
+            height: 120px;
+          }
+          .ach-details h3 {
+            font-size: 1.5rem;
           }
           .ach-stats {
             grid-template-columns: 1fr;
+            gap: 1rem;
           }
           .ach-actions {
             flex-direction: column;
             align-items: center;
+            gap: 1.5rem;
+          }
+          .ach-tags {
+            justify-content: center;
+            flex-wrap: wrap;
           }
         }
       `}} />

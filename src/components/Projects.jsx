@@ -80,12 +80,20 @@ const Projects = () => {
 
       <style dangerouslySetInnerHTML={{ __html: `
         .projects-content {
-          padding-top: 2rem;
+          padding-top: 1rem;
         }
         .projects-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 1.5rem;
+        }
+        @media (max-width: 480px) {
+          .projects-grid {
+            grid-template-columns: 1fr;
+          }
+          .project-card {
+            padding: 1.5rem;
+          }
         }
         .project-card {
           padding: 2.5rem;
