@@ -87,6 +87,23 @@ function App() {
         </div>
       </div>
       <style dangerouslySetInnerHTML={{ __html: `
+        .terminal-header-fixed {
+          flex-wrap: nowrap;
+          overflow: hidden;
+        }
+        .current-command {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+          font-size: clamp(0.7rem, 3vw, 0.9rem);
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        .command {
+          color: var(--primary);
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
         .terminal-footer {
           padding: 4rem 2rem;
           text-align: center;

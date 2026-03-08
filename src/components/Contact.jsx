@@ -205,6 +205,15 @@ const Contact = () => {
         @media (max-width: 800px) {
           .contact-container {
             grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+          .info-item {
+            padding: 1rem;
+            gap: 1rem;
+          }
+          .info-content .value {
+            font-size: 0.85rem;
+            word-break: break-all;
           }
         }
       `}} />

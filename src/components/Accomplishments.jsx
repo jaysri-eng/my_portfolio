@@ -154,6 +154,15 @@ const Accomplishments = () => {
           font-family: var(--font-mono);
           font-weight: 800;
           color: var(--text-main);
+          word-break: break-word;
+        }
+        .section-title {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          align-items: baseline;
+          word-break: break-all;
+          font-size: clamp(1.2rem, 5vw, 2rem);
         }
         .ach-desc {
           color: var(--primary);
