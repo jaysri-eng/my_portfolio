@@ -1,19 +1,18 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, ExternalLink, PenTool } from 'lucide-react';
+import { Linkedin, PenTool } from 'lucide-react';
 
 const LinkedInPosts = () => {
   const posts = [
     {
-      title: "Lessons from Scaling to 100k Users",
+      title: "Most people learning DSA are fooling themselves.",
       date: "March 2026",
-      preview: "Exploring the technical and community challenges of maintaining a high-impact educational app..."
+      preview: "Understanding the core concepts of DSA is more important than just solving problems..."
     },
-    {
-      title: "The Power of Flutter in Education",
-      date: "Feb 2026",
-      preview: "How cross-platform development enabled rapid iteration for the Sign Language app..."
-    }
+    // {
+    //   title: "The Power of Flutter in Education",
+    //   date: "Feb 2026",
+    //   preview: "How cross-platform development enabled rapid iteration for the Sign Language app..."
+    // }
   ];
 
   return (

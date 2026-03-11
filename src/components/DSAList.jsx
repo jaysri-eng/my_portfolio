@@ -1,6 +1,4 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Code, BookOpen, ChevronRight, ExternalLink } from 'lucide-react';
+import { Code, ChevronRight, ExternalLink } from 'lucide-react';
 
 const DSAList = () => {
   const topics = [
