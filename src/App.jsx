@@ -5,7 +5,10 @@ import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Accomplishments from './components/Accomplishments'
+import LinkedInPosts from './components/LinkedInPosts'
+import DSAList from './components/DSAList'
 import Contact from './components/Contact'
+import AnnouncementBanner from './components/AnnouncementBanner'
 
 function App() {
   const [activeCommand, setActiveCommand] = useState('whoami');
@@ -15,6 +18,8 @@ function App() {
       hero: 'whoami',
       accomplishments: './show_global_impact.sh',
       experience: 'history | grep "employment"',
+      linkedin: 'cat recent_writeups.md',
+      dsa: './list_dsa_concepts.py',
       projects: 'ls ./featured_projects',
       skills: 'cat technical_expertise.md',
       contact: 'mail -s "get_in_touch" contact@jayanth.dev'
@@ -45,6 +50,7 @@ function App() {
 
   return (
     <div className="app">
+      <AnnouncementBanner />
       <Navbar />
       
       <div className="unified-terminal">
@@ -69,6 +75,12 @@ function App() {
           </section>
           <section id="experience" className="terminal-section-lite">
             <Experience />
+          </section>
+          <section id="linkedin" className="terminal-section-lite">
+            <LinkedInPosts />
+          </section>
+          <section id="dsa" className="terminal-section-lite">
+            <DSAList />
           </section>
           <section id="projects" className="terminal-section-lite">
             <Projects />

@@ -38,8 +38,8 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-top: 5rem;
-    /* Gap for fixed navbar */
+    padding-top: 7rem;
+    /* Increased gap for banner + fixed navbar */
 }
 
 .unified-terminal {

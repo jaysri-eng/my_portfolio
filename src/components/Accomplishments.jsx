@@ -8,10 +8,10 @@ const Accomplishments = () => {
     {
       title: "Basics of Sign Language (Flutter)",
       desc: "Developed, published, and managed an educational application on the Google Play Store to teach the fundamentals of sign language.",
-      longDesc: "Scaled the application to attract over 75,000 users and cultivated a recurring community of 10,000 Monthly Active Users (MAU) through feature iteration and user feedback. Secured the official 'Teacher Approved' certification from Google, highlighting the app's high quality, educational merit, and adherence to best practices.",
+      longDesc: "Scaled the application to attract over 100,000 users and cultivated a recurring community of 15,000 Monthly Active Users (MAU) through feature iteration and user feedback. Secured the official 'Teacher Approved' certification from Google, highlighting the app's high quality, educational merit, and adherence to best practices.",
       stats: [
-        { label: "Total Users", value: "75,000+", icon: <Users size={20} /> },
-        { label: "Monthly Active Users", value: "10,000", icon: <Star size={20} /> }
+        { label: "Total Users", value: "100,000+", icon: <Users size={20} /> },
+        { label: "Monthly Active Users", value: "15,000+", icon: <Star size={20} /> }
       ],
       tags: ["Google Play Store", "Teacher Approved", "Flutter"],
       badge: "Google Teacher Approved",

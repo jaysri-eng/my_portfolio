@@ -69,7 +69,7 @@ const Navbar = () => {
       <style dangerouslySetInnerHTML={{ __html: `
         .navbar-container {
           position: fixed;
-          top: 1rem;
+          top: calc(40px + 1rem);
           left: 0;
           right: 0;
           display: flex;
