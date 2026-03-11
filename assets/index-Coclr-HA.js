@@ -227,29 +227,39 @@ Error generating stack: `+s.message+`
           bottom: 0;
           width: 80%;
           max-width: 300px;
-          background: #09090b;
+          background: #09090b; /* Solid background to avoid blurriness */
           border-left: 1px solid var(--glass-border);
           display: flex;
           flex-direction: column;
           z-index: 3000;
           font-family: var(--font-mono);
-          box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+          box-shadow: -20px 0 50px rgba(0, 0, 0, 0.8);
+          overflow-y: auto; /* Enable scrolling */
+          -webkit-overflow-scrolling: touch;
         }
         .mobile-nav-header {
           display: flex;
           align-items: center;
           justify-content: space-between;
           padding: 1.5rem;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          background: #18181b;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          position: sticky;
+          top: 0;
+          z-index: 10;
         }
         .close-btn {
-          background: transparent;
+          background: var(--primary); /* High contrast */
           border: none;
           color: white;
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          box-shadow: 0 4px 10px rgba(168, 85, 247, 0.4);
         }
         .mobile-nav-content {
           padding: 1rem;
