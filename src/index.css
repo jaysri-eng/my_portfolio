@@ -33,18 +33,13 @@ body {
     color: var(--text-main);
     font-family: var(--font-mono);
     line-height: 1.6;
-    overflow: hidden;
-    /* Lock global scroll */
-    height: 100vh;
 }
 
 .app {
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-top: 140px;
-    /* Generous gap for stacked header */
-    transition: padding-top 0.3s ease;
+    transition: padding 0.3s ease-out;
+    min-height: 100vh;
 }
 
 @media (max-width: 768px) {
@@ -52,9 +47,13 @@ body {
         --banner-height: 40px;
     }
 
+    body {
+        overflow-y: auto;
+        height: auto;
+    }
+
     .app {
-        padding-top: 160px;
-        /* Even more for mobile wrapping */
+        height: auto;
     }
 }
 
@@ -76,9 +75,9 @@ body {
 
 @media (max-width: 768px) {
     .unified-terminal {
-        margin: 0.75rem auto;
-        width: calc(100% - 1rem);
-        /* Tighter for small screens */
+        margin: 1.5rem auto;
+        /* Increased spacing from navbar */
+        width: calc(100% - 1.25rem);
     }
 }
 

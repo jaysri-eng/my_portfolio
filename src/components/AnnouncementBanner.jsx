@@ -103,22 +103,33 @@ const AnnouncementBanner = () => {
         }
         @media (max-width: 768px) {
           .announcement-banner {
-            padding: 10px 15px;
+            padding: 12px 15px; /* More padding for vertical space */
+          }
+          .banner-content {
+            flex-direction: column;
+            gap: 8px;
+            text-align: center;
           }
           .banner-badge {
-            display: none;
+            display: inline-block;
+            font-size: 0.6rem;
+            padding: 1px 8px;
+            margin-bottom: 2px;
           }
           .banner-text {
-            font-size: 1.1rem; /* Increased as requested */
-            line-height: 1.2;
-            text-align: center;
-            gap: 5px;
+            font-size: 1.05rem; /* Balanced size */
+            line-height: 1.3;
+            flex-direction: column;
+            gap: 4px;
           }
           .banner-link {
             font-size: 0.9rem;
-            margin-top: 4px;
-            width: 100%;
-            justify-content: center;
+            margin-left: 0;
+            margin-top: 5px;
+            width: fit-content;
+            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
           }
         }
       `}} />

@@ -12,6 +12,21 @@ import AnnouncementBanner from './components/AnnouncementBanner'
 
 function App() {
   const [activeCommand, setActiveCommand] = useState('whoami');
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const headerRef = React.useRef(null);
+
+  useEffect(() => {
+    if (!headerRef.current) return;
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        setHeaderHeight(entry.contentRect.height);
+      }
+    });
+
+    resizeObserver.observe(headerRef.current);
+    return () => resizeObserver.disconnect();
+  }, []);
 
   useEffect(() => {
     const sectionCommands = {
@@ -49,8 +64,8 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <div className="header-stack">
+    <div className="app" style={{ paddingTop: `${headerHeight}px` }}>
+      <div className="header-stack" ref={headerRef}>
         <AnnouncementBanner />
         <Navbar />
       </div>
@@ -134,9 +149,10 @@ function App() {
           top: 0;
           left: 0;
           right: 0;
-          z-index: 2000;
+          z-index: 1500;
           display: flex;
           flex-direction: column;
+          width: 100%;
         }
       `}} />
     </div>

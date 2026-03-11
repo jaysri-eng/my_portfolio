@@ -49,21 +49,23 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="mobile-nav glass"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="mobile-nav open"
           >
-            {navLinks.map((link) => (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                className="mobile-nav-item"
-                onClick={handleLinkClick}
-              >
-                {link.name}
-              </a>
-            ))}
+            <div className="mobile-nav-content">
+              {navLinks.map((link) => (
+                <a 
+                  key={link.name} 
+                  href={link.href} 
+                  className="mobile-nav-item"
+                  onClick={handleLinkClick}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -74,7 +76,7 @@ const Navbar = () => {
           display: flex;
           justify-content: center;
           z-index: 1000;
-          padding: 1rem;
+          padding: 0.5rem 1rem;
           width: 100%;
         }
         @media (max-width: 768px) {
@@ -125,32 +127,59 @@ const Navbar = () => {
           display: none;
           background: transparent;
           border: none;
-          color: var(--text-main);
+          color: white; /* High contrast */
           cursor: pointer;
         }
         .mobile-nav {
-          position: fixed;
-          top: 4.5rem;
-          left: 1rem;
-          right: 1rem;
-          background: #18181b;
+          position: absolute;
+          top: 100%; /* Directly below navbar */
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
+          max-width: 900px;
+          background: rgba(24, 24, 27, 0.98);
+          border-radius: 0 0 0.75rem 0.75rem;
           border: 1px solid var(--glass-border);
-          padding: 1.5rem;
+          border-top: none;
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+          z-index: 2000;          
+          display: none;
+          flex-direction: column;
+          padding: 0.5rem 0.5rem 0.75rem;
+        }
+        .mobile-nav.open {
+          display: flex;
+        }
+        .mobile-nav-content {
+          margin-top: 0.25rem;
           display: flex;
           flex-direction: column;
-          gap: 1rem;
-          z-index: 999;
-          font-family: var(--font-mono);
-          border-radius: 0.25rem;
+          gap: 0.5rem;
+          padding: 0.25rem 0.25rem 0.5rem;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+          max-height: 70vh; /* Scrollable dropdown, not full screen */
+          border-radius: 0 0 0.75rem 0.75rem;
         }
         .mobile-nav-item {
-          font-size: 0.9rem;
+          font-size: 1rem;
           color: var(--text-main);
           text-decoration: none;
+          padding: 1rem;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+        .mobile-nav-item:last-child {
+          border-bottom: none;
         }
         .mobile-nav-item::before {
           content: '$ ';
           color: #27c93f;
+        }
+        .mobile-nav-item:active {
+          background: rgba(168, 85, 247, 0.1);
         }
         @media (max-width: 768px) {
           .desktop-nav { display: none; }
