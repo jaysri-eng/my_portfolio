@@ -161,6 +161,11 @@ Error generating stack: `+s.message+`
           z-index: 1000;
           padding: 0 1rem;
         }
+        @media (max-width: 768px) {
+          .navbar-container {
+            top: calc(32px + 2rem);
+          }
+        }
         .navbar {
           display: flex;
           align-items: center;
@@ -1093,12 +1098,20 @@ Error generating stack: `+s.message+`
           animation: bounce-subtle 2s infinite ease-in-out;
         }
         @media (max-width: 768px) {
+          .announcement-banner {
+            padding: 4px 10px;
+          }
           .banner-badge {
             display: none;
           }
           .banner-text {
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             text-align: center;
+            gap: 5px;
+          }
+          .banner-link {
+            font-size: 0.85rem;
+            margin-left: 5px;
           }
         }
       `}})]});function sS(){const[e,t]=N.useState("whoami");return N.useEffect(()=>{const n={hero:"whoami",accomplishments:"./show_global_impact.sh",experience:'history | grep "employment"',linkedin:"cat recent_writeups.md",dsa:"./list_dsa_concepts.py",projects:"ls ./featured_projects",skills:"cat technical_expertise.md",contact:'mail -s "get_in_touch" contact@jayanth.dev'},r={root:document.querySelector(".terminal-window-body"),threshold:.2},i=new IntersectionObserver(s=>{s.forEach(o=>{if(o.isIntersecting){const a=o.target.id;n[a]&&t(n[a])}})},r);return document.querySelectorAll("section, .hero-section").forEach(s=>{i.observe(s)}),()=>i.disconnect()},[]),m.jsxs("div",{className:"app",children:[m.jsx(iS,{}),m.jsx(Gw,{}),m.jsxs("div",{className:"unified-terminal",children:[m.jsxs("div",{className:"terminal-header-fixed",children:[m.jsxs("div",{className:"terminal-dots",children:[m.jsx("span",{className:"dot red"}),m.jsx("span",{className:"dot yellow"}),m.jsx("span",{className:"dot green"})]}),m.jsxs("div",{className:"current-command",children:[m.jsx("span",{className:"terminal-prompt",children:"jayanth@portfolio:~$"}),m.jsx("span",{className:"command",children:e})]})]}),m.jsxs("div",{className:"terminal-window-body",children:[m.jsx("section",{id:"hero",className:"hero-section",children:m.jsx(Qw,{})}),m.jsx("section",{id:"accomplishments",className:"terminal-section-lite",children:m.jsx(Jw,{})}),m.jsx("section",{id:"experience",className:"terminal-section-lite",children:m.jsx(Yw,{})}),m.jsx("section",{id:"linkedin",className:"terminal-section-lite",children:m.jsx(eS,{})}),m.jsx("section",{id:"dsa",className:"terminal-section-lite",children:m.jsx(tS,{})}),m.jsx("section",{id:"projects",className:"terminal-section-lite",children:m.jsx(Xw,{})}),m.jsx("section",{id:"skills",className:"terminal-section-lite",children:m.jsx(Zw,{})}),m.jsx("section",{id:"contact",className:"terminal-section-lite",children:m.jsx(rS,{})}),m.jsxs("footer",{className:"terminal-footer",children:[m.jsx("p",{children:"jayanth@portfolio:~$ history | tail -n 1"}),m.jsxs("p",{children:["© ",new Date().getFullYear()," R. Jayanth Srinivasan. exit 0;"]})]})]})]}),m.jsx("style",{dangerouslySetInnerHTML:{__html:`
