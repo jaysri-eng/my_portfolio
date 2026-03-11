@@ -102,12 +102,20 @@ const AnnouncementBanner = () => {
           animation: bounce-subtle 2s infinite ease-in-out;
         }
         @media (max-width: 768px) {
+          .announcement-banner {
+            padding: 4px 10px;
+          }
           .banner-badge {
             display: none;
           }
           .banner-text {
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             text-align: center;
+            gap: 5px;
+          }
+          .banner-link {
+            font-size: 0.85rem;
+            margin-left: 5px;
           }
         }
       `}} />

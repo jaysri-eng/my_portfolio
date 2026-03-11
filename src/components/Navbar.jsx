@@ -79,6 +79,11 @@ const Navbar = () => {
           z-index: 1000;
           padding: 0 1rem;
         }
+        @media (max-width: 768px) {
+          .navbar-container {
+            top: calc(32px + 2rem);
+          }
+        }
         .navbar {
           display: flex;
           align-items: center;

@@ -40,6 +40,14 @@ body {
     flex-direction: column;
     padding-top: 7rem;
     /* Increased gap for banner + fixed navbar */
+    transition: padding-top 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .app {
+        padding-top: 9rem;
+        /* More space for banner + navbar on mobile */
+    }
 }
 
 .unified-terminal {
