@@ -41,6 +41,7 @@ function App() {
     };
 
     const options = {
+      // Observe sections within the scrollable terminal window body
       root: document.querySelector('.terminal-window-body'),
       threshold: 0.2
     };
