@@ -152,19 +152,16 @@ Error generating stack: `+s.message+`
  * See the LICENSE file in the root directory of this source tree.
  */const Kw=ne("Zap",[["polygon",{points:"13 2 3 14 12 14 11 22 21 10 12 10 13 2",key:"45s27k"}]]),Gw=()=>{const[e,t]=N.useState(!1),n=[{name:"Home",href:"#"},{name:"Impact",href:"#accomplishments"},{name:"Experience",href:"#experience"},{name:"Writeups",href:"#linkedin"},{name:"DSA",href:"#dsa"},{name:"Projects",href:"#projects"},{name:"Skills",href:"#skills"},{name:"Contact",href:"#contact"}],r=()=>t(!e),i=()=>t(!1);return m.jsxs(ge.nav,{initial:{y:-100},animate:{y:0},className:"navbar-container",children:[m.jsxs("div",{className:"navbar glass",children:[m.jsxs("div",{className:"logo",children:["JS",m.jsx("span",{children:"."})]}),m.jsx("div",{className:"nav-links desktop-nav",children:n.map(s=>m.jsx("a",{href:s.href,className:"nav-item",children:s.name},s.name))}),m.jsx("button",{className:"mobile-menu-btn",onClick:r,"aria-label":"Toggle menu",children:e?m.jsx(Hw,{size:24}):m.jsx(Iw,{size:24})})]}),m.jsx(lv,{children:e&&m.jsx(ge.div,{initial:{opacity:0,y:-20},animate:{opacity:1,y:0},exit:{opacity:0,y:-20},className:"mobile-nav glass",children:n.map(s=>m.jsx("a",{href:s.href,className:"mobile-nav-item",onClick:i,children:s.name},s.name))})}),m.jsx("style",{dangerouslySetInnerHTML:{__html:`
         .navbar-container {
-          position: fixed;
-          top: calc(var(--banner-height) + 1rem);
-          left: 0;
-          right: 0;
+          position: relative;
           display: flex;
           justify-content: center;
           z-index: 1000;
-          padding: 0 1rem;
-          height: var(--navbar-height);
+          padding: 1rem;
+          width: 100%;
         }
         @media (max-width: 768px) {
           .navbar-container {
-            top: calc(var(--banner-height) + 1.25rem);
+            padding: 0.75rem 1rem;
           }
         }
         .navbar {
@@ -1033,19 +1030,17 @@ Error generating stack: `+s.message+`
         .announcement-banner {
           background: var(--grad-purple);
           color: white;
-          padding: 0 20px;
-          height: var(--banner-height);
+          padding: 8px 20px;
+          min-height: var(--banner-height);
+          height: auto;
           display: flex;
           justify-content: center;
           align-items: center;
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
+          position: relative;
           z-index: 2000;
           box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
           font-family: var(--font-body);
-          padding-top: env(safe-area-inset-top);
+          padding-top: calc(env(safe-area-inset-top) + 8px);
         }
         .banner-content {
           display: flex;
@@ -1102,23 +1097,25 @@ Error generating stack: `+s.message+`
         }
         @media (max-width: 768px) {
           .announcement-banner {
-            padding-left: 10px;
-            padding-right: 10px;
+            padding: 10px 15px;
           }
           .banner-badge {
             display: none;
           }
           .banner-text {
-            font-size: 0.95rem;
+            font-size: 1.1rem; /* Increased as requested */
+            line-height: 1.2;
             text-align: center;
             gap: 5px;
           }
           .banner-link {
-            font-size: 0.85rem;
-            margin-left: 5px;
+            font-size: 0.9rem;
+            margin-top: 4px;
+            width: 100%;
+            justify-content: center;
           }
         }
-      `}})]});function sS(){const[e,t]=N.useState("whoami");return N.useEffect(()=>{const n={hero:"whoami",accomplishments:"./show_global_impact.sh",experience:'history | grep "employment"',linkedin:"cat recent_writeups.md",dsa:"./list_dsa_concepts.py",projects:"ls ./featured_projects",skills:"cat technical_expertise.md",contact:'mail -s "get_in_touch" contact@jayanth.dev'},r={root:document.querySelector(".terminal-window-body"),threshold:.2},i=new IntersectionObserver(s=>{s.forEach(o=>{if(o.isIntersecting){const a=o.target.id;n[a]&&t(n[a])}})},r);return document.querySelectorAll("section, .hero-section").forEach(s=>{i.observe(s)}),()=>i.disconnect()},[]),m.jsxs("div",{className:"app",children:[m.jsx(iS,{}),m.jsx(Gw,{}),m.jsxs("div",{className:"unified-terminal",children:[m.jsxs("div",{className:"terminal-header-fixed",children:[m.jsxs("div",{className:"terminal-dots",children:[m.jsx("span",{className:"dot red"}),m.jsx("span",{className:"dot yellow"}),m.jsx("span",{className:"dot green"})]}),m.jsxs("div",{className:"current-command",children:[m.jsx("span",{className:"terminal-prompt",children:"jayanth@portfolio:~$"}),m.jsx("span",{className:"command",children:e})]})]}),m.jsxs("div",{className:"terminal-window-body",children:[m.jsx("section",{id:"hero",className:"hero-section",children:m.jsx(Qw,{})}),m.jsx("section",{id:"accomplishments",className:"terminal-section-lite",children:m.jsx(Jw,{})}),m.jsx("section",{id:"experience",className:"terminal-section-lite",children:m.jsx(Yw,{})}),m.jsx("section",{id:"linkedin",className:"terminal-section-lite",children:m.jsx(eS,{})}),m.jsx("section",{id:"dsa",className:"terminal-section-lite",children:m.jsx(tS,{})}),m.jsx("section",{id:"projects",className:"terminal-section-lite",children:m.jsx(Xw,{})}),m.jsx("section",{id:"skills",className:"terminal-section-lite",children:m.jsx(Zw,{})}),m.jsx("section",{id:"contact",className:"terminal-section-lite",children:m.jsx(rS,{})}),m.jsxs("footer",{className:"terminal-footer",children:[m.jsx("p",{children:"jayanth@portfolio:~$ history | tail -n 1"}),m.jsxs("p",{children:["© ",new Date().getFullYear()," R. Jayanth Srinivasan. exit 0;"]})]})]})]}),m.jsx("style",{dangerouslySetInnerHTML:{__html:`
+      `}})]});function sS(){const[e,t]=N.useState("whoami");return N.useEffect(()=>{const n={hero:"whoami",accomplishments:"./show_global_impact.sh",experience:'history | grep "employment"',linkedin:"cat recent_writeups.md",dsa:"./list_dsa_concepts.py",projects:"ls ./featured_projects",skills:"cat technical_expertise.md",contact:'mail -s "get_in_touch" contact@jayanth.dev'},r={root:document.querySelector(".terminal-window-body"),threshold:.2},i=new IntersectionObserver(s=>{s.forEach(o=>{if(o.isIntersecting){const a=o.target.id;n[a]&&t(n[a])}})},r);return document.querySelectorAll("section, .hero-section").forEach(s=>{i.observe(s)}),()=>i.disconnect()},[]),m.jsxs("div",{className:"app",children:[m.jsxs("div",{className:"header-stack",children:[m.jsx(iS,{}),m.jsx(Gw,{})]}),m.jsxs("div",{className:"unified-terminal",children:[m.jsxs("div",{className:"terminal-header-fixed",children:[m.jsxs("div",{className:"terminal-dots",children:[m.jsx("span",{className:"dot red"}),m.jsx("span",{className:"dot yellow"}),m.jsx("span",{className:"dot green"})]}),m.jsxs("div",{className:"current-command",children:[m.jsx("span",{className:"terminal-prompt",children:"jayanth@portfolio:~$"}),m.jsx("span",{className:"command",children:e})]})]}),m.jsxs("div",{className:"terminal-window-body",children:[m.jsx("section",{id:"hero",className:"hero-section",children:m.jsx(Qw,{})}),m.jsx("section",{id:"accomplishments",className:"terminal-section-lite",children:m.jsx(Jw,{})}),m.jsx("section",{id:"experience",className:"terminal-section-lite",children:m.jsx(Yw,{})}),m.jsx("section",{id:"linkedin",className:"terminal-section-lite",children:m.jsx(eS,{})}),m.jsx("section",{id:"dsa",className:"terminal-section-lite",children:m.jsx(tS,{})}),m.jsx("section",{id:"projects",className:"terminal-section-lite",children:m.jsx(Xw,{})}),m.jsx("section",{id:"skills",className:"terminal-section-lite",children:m.jsx(Zw,{})}),m.jsx("section",{id:"contact",className:"terminal-section-lite",children:m.jsx(rS,{})}),m.jsxs("footer",{className:"terminal-footer",children:[m.jsx("p",{children:"jayanth@portfolio:~$ history | tail -n 1"}),m.jsxs("p",{children:["© ",new Date().getFullYear()," R. Jayanth Srinivasan. exit 0;"]})]})]})]}),m.jsx("style",{dangerouslySetInnerHTML:{__html:`
         .terminal-header-fixed {
           flex-wrap: nowrap;
           overflow: hidden;
@@ -1146,5 +1143,14 @@ Error generating stack: `+s.message+`
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
+        }
+        .header-stack {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 2000;
+          display: flex;
+          flex-direction: column;
         }
       `}})]})}Mo.createRoot(document.getElementById("root")).render(m.jsx(Ao.StrictMode,{children:m.jsx(sS,{})}));
