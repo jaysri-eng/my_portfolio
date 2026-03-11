@@ -156,7 +156,7 @@ Error generating stack: `+s.message+`
           display: flex;
           justify-content: center;
           z-index: 1000;
-          padding: 1rem;
+          padding: 0.5rem 1rem;
           width: 100%;
         }
         @media (max-width: 768px) {
@@ -1097,22 +1097,33 @@ Error generating stack: `+s.message+`
         }
         @media (max-width: 768px) {
           .announcement-banner {
-            padding: 10px 15px;
+            padding: 12px 15px; /* More padding for vertical space */
+          }
+          .banner-content {
+            flex-direction: column;
+            gap: 8px;
+            text-align: center;
           }
           .banner-badge {
-            display: none;
+            display: inline-block;
+            font-size: 0.6rem;
+            padding: 1px 8px;
+            margin-bottom: 2px;
           }
           .banner-text {
-            font-size: 1.1rem; /* Increased as requested */
-            line-height: 1.2;
-            text-align: center;
-            gap: 5px;
+            font-size: 1.05rem; /* Balanced size */
+            line-height: 1.3;
+            flex-direction: column;
+            gap: 4px;
           }
           .banner-link {
             font-size: 0.9rem;
-            margin-top: 4px;
-            width: 100%;
-            justify-content: center;
+            margin-left: 0;
+            margin-top: 5px;
+            width: fit-content;
+            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
           }
         }
       `}})]});function sS(){const[e,t]=N.useState("whoami");return N.useEffect(()=>{const n={hero:"whoami",accomplishments:"./show_global_impact.sh",experience:'history | grep "employment"',linkedin:"cat recent_writeups.md",dsa:"./list_dsa_concepts.py",projects:"ls ./featured_projects",skills:"cat technical_expertise.md",contact:'mail -s "get_in_touch" contact@jayanth.dev'},r={root:document.querySelector(".terminal-window-body"),threshold:.2},i=new IntersectionObserver(s=>{s.forEach(o=>{if(o.isIntersecting){const a=o.target.id;n[a]&&t(n[a])}})},r);return document.querySelectorAll("section, .hero-section").forEach(s=>{i.observe(s)}),()=>i.disconnect()},[]),m.jsxs("div",{className:"app",children:[m.jsxs("div",{className:"header-stack",children:[m.jsx(iS,{}),m.jsx(Gw,{})]}),m.jsxs("div",{className:"unified-terminal",children:[m.jsxs("div",{className:"terminal-header-fixed",children:[m.jsxs("div",{className:"terminal-dots",children:[m.jsx("span",{className:"dot red"}),m.jsx("span",{className:"dot yellow"}),m.jsx("span",{className:"dot green"})]}),m.jsxs("div",{className:"current-command",children:[m.jsx("span",{className:"terminal-prompt",children:"jayanth@portfolio:~$"}),m.jsx("span",{className:"command",children:e})]})]}),m.jsxs("div",{className:"terminal-window-body",children:[m.jsx("section",{id:"hero",className:"hero-section",children:m.jsx(Qw,{})}),m.jsx("section",{id:"accomplishments",className:"terminal-section-lite",children:m.jsx(Jw,{})}),m.jsx("section",{id:"experience",className:"terminal-section-lite",children:m.jsx(Yw,{})}),m.jsx("section",{id:"linkedin",className:"terminal-section-lite",children:m.jsx(eS,{})}),m.jsx("section",{id:"dsa",className:"terminal-section-lite",children:m.jsx(tS,{})}),m.jsx("section",{id:"projects",className:"terminal-section-lite",children:m.jsx(Xw,{})}),m.jsx("section",{id:"skills",className:"terminal-section-lite",children:m.jsx(Zw,{})}),m.jsx("section",{id:"contact",className:"terminal-section-lite",children:m.jsx(rS,{})}),m.jsxs("footer",{className:"terminal-footer",children:[m.jsx("p",{children:"jayanth@portfolio:~$ history | tail -n 1"}),m.jsxs("p",{children:["© ",new Date().getFullYear()," R. Jayanth Srinivasan. exit 0;"]})]})]})]}),m.jsx("style",{dangerouslySetInnerHTML:{__html:`
@@ -1145,12 +1156,9 @@ Error generating stack: `+s.message+`
           gap: 0.5rem;
         }
         .header-stack {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
           z-index: 2000;
           display: flex;
           flex-direction: column;
+          width: 100%;
         }
       `}})]})}Mo.createRoot(document.getElementById("root")).render(m.jsx(Ao.StrictMode,{children:m.jsx(sS,{})}));
