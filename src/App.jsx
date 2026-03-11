@@ -50,8 +50,10 @@ function App() {
 
   return (
     <div className="app">
-      <AnnouncementBanner />
-      <Navbar />
+      <div className="header-stack">
+        <AnnouncementBanner />
+        <Navbar />
+      </div>
       
       <div className="unified-terminal">
         <div className="terminal-header-fixed">
@@ -126,6 +128,15 @@ function App() {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
+        }
+        .header-stack {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 2000;
+          display: flex;
+          flex-direction: column;
         }
       `}} />
     </div>

@@ -70,19 +70,16 @@ const Navbar = () => {
 
       <style dangerouslySetInnerHTML={{ __html: `
         .navbar-container {
-          position: fixed;
-          top: calc(var(--banner-height) + 1rem);
-          left: 0;
-          right: 0;
+          position: relative;
           display: flex;
           justify-content: center;
           z-index: 1000;
-          padding: 0 1rem;
-          height: var(--navbar-height);
+          padding: 1rem;
+          width: 100%;
         }
         @media (max-width: 768px) {
           .navbar-container {
-            top: calc(var(--banner-height) + 1.25rem);
+            padding: 0.75rem 1rem;
           }
         }
         .navbar {

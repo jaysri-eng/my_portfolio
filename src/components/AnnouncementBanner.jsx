@@ -36,19 +36,17 @@ const AnnouncementBanner = () => {
         .announcement-banner {
           background: var(--grad-purple);
           color: white;
-          padding: 0 20px;
-          height: var(--banner-height);
+          padding: 8px 20px;
+          min-height: var(--banner-height);
+          height: auto;
           display: flex;
           justify-content: center;
           align-items: center;
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
+          position: relative;
           z-index: 2000;
           box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
           font-family: var(--font-body);
-          padding-top: env(safe-area-inset-top);
+          padding-top: calc(env(safe-area-inset-top) + 8px);
         }
         .banner-content {
           display: flex;
@@ -105,20 +103,22 @@ const AnnouncementBanner = () => {
         }
         @media (max-width: 768px) {
           .announcement-banner {
-            padding-left: 10px;
-            padding-right: 10px;
+            padding: 10px 15px;
           }
           .banner-badge {
             display: none;
           }
           .banner-text {
-            font-size: 0.95rem;
+            font-size: 1.1rem; /* Increased as requested */
+            line-height: 1.2;
             text-align: center;
             gap: 5px;
           }
           .banner-link {
-            font-size: 0.85rem;
-            margin-left: 5px;
+            font-size: 0.9rem;
+            margin-top: 4px;
+            width: 100%;
+            justify-content: center;
           }
         }
       `}} />

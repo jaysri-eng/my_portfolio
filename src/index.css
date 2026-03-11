@@ -42,18 +42,19 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-top: calc(var(--banner-height) + var(--navbar-height) + 2rem);
+    padding-top: 140px;
+    /* Generous gap for stacked header */
     transition: padding-top 0.3s ease;
 }
 
 @media (max-width: 768px) {
     :root {
         --banner-height: 40px;
-        --navbar-height: 56px;
     }
 
     .app {
-        padding-top: calc(var(--banner-height) + var(--navbar-height) + 2.5rem);
+        padding-top: 160px;
+        /* Even more for mobile wrapping */
     }
 }
 
