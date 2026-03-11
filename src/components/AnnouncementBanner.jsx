@@ -36,7 +36,8 @@ const AnnouncementBanner = () => {
         .announcement-banner {
           background: var(--grad-purple);
           color: white;
-          padding: 10px 20px;
+          padding: 0 20px;
+          height: var(--banner-height);
           display: flex;
           justify-content: center;
           align-items: center;
@@ -47,6 +48,7 @@ const AnnouncementBanner = () => {
           z-index: 2000;
           box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
           font-family: var(--font-body);
+          padding-top: env(safe-area-inset-top);
         }
         .banner-content {
           display: flex;
@@ -103,7 +105,8 @@ const AnnouncementBanner = () => {
         }
         @media (max-width: 768px) {
           .announcement-banner {
-            padding: 4px 10px;
+            padding-left: 10px;
+            padding-right: 10px;
           }
           .banner-badge {
             display: none;

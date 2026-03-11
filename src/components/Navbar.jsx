@@ -71,17 +71,18 @@ const Navbar = () => {
       <style dangerouslySetInnerHTML={{ __html: `
         .navbar-container {
           position: fixed;
-          top: calc(40px + 1rem);
+          top: calc(var(--banner-height) + 1rem);
           left: 0;
           right: 0;
           display: flex;
           justify-content: center;
           z-index: 1000;
           padding: 0 1rem;
+          height: var(--navbar-height);
         }
         @media (max-width: 768px) {
           .navbar-container {
-            top: calc(32px + 2rem);
+            top: calc(var(--banner-height) + 1.25rem);
           }
         }
         .navbar {

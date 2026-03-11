@@ -16,6 +16,10 @@
     --grad-purple: linear-gradient(135deg, #a855f7, #7c3aed);
     --grad-white: linear-gradient(135deg, #ffffff, #cbd5e1);
     --grad-mixed: linear-gradient(135deg, #a855f7, #ffffff);
+
+    /* Layout Constants */
+    --banner-height: 48px;
+    --navbar-height: 64px;
 }
 
 * {
@@ -38,15 +42,18 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-top: 7rem;
-    /* Increased gap for banner + fixed navbar */
+    padding-top: calc(var(--banner-height) + var(--navbar-height) + 2rem);
     transition: padding-top 0.3s ease;
 }
 
 @media (max-width: 768px) {
+    :root {
+        --banner-height: 40px;
+        --navbar-height: 56px;
+    }
+
     .app {
-        padding-top: 9rem;
-        /* More space for banner + navbar on mobile */
+        padding-top: calc(var(--banner-height) + var(--navbar-height) + 2.5rem);
     }
 }
 
