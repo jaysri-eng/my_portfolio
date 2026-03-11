@@ -153,17 +153,18 @@ Error generating stack: `+s.message+`
  */const Kw=ne("Zap",[["polygon",{points:"13 2 3 14 12 14 11 22 21 10 12 10 13 2",key:"45s27k"}]]),Gw=()=>{const[e,t]=N.useState(!1),n=[{name:"Home",href:"#"},{name:"Impact",href:"#accomplishments"},{name:"Experience",href:"#experience"},{name:"Writeups",href:"#linkedin"},{name:"DSA",href:"#dsa"},{name:"Projects",href:"#projects"},{name:"Skills",href:"#skills"},{name:"Contact",href:"#contact"}],r=()=>t(!e),i=()=>t(!1);return m.jsxs(ge.nav,{initial:{y:-100},animate:{y:0},className:"navbar-container",children:[m.jsxs("div",{className:"navbar glass",children:[m.jsxs("div",{className:"logo",children:["JS",m.jsx("span",{children:"."})]}),m.jsx("div",{className:"nav-links desktop-nav",children:n.map(s=>m.jsx("a",{href:s.href,className:"nav-item",children:s.name},s.name))}),m.jsx("button",{className:"mobile-menu-btn",onClick:r,"aria-label":"Toggle menu",children:e?m.jsx(Hw,{size:24}):m.jsx(Iw,{size:24})})]}),m.jsx(lv,{children:e&&m.jsx(ge.div,{initial:{opacity:0,y:-20},animate:{opacity:1,y:0},exit:{opacity:0,y:-20},className:"mobile-nav glass",children:n.map(s=>m.jsx("a",{href:s.href,className:"mobile-nav-item",onClick:i,children:s.name},s.name))})}),m.jsx("style",{dangerouslySetInnerHTML:{__html:`
         .navbar-container {
           position: fixed;
-          top: calc(40px + 1rem);
+          top: calc(var(--banner-height) + 1rem);
           left: 0;
           right: 0;
           display: flex;
           justify-content: center;
           z-index: 1000;
           padding: 0 1rem;
+          height: var(--navbar-height);
         }
         @media (max-width: 768px) {
           .navbar-container {
-            top: calc(32px + 2rem);
+            top: calc(var(--banner-height) + 1.25rem);
           }
         }
         .navbar {
@@ -1032,7 +1033,8 @@ Error generating stack: `+s.message+`
         .announcement-banner {
           background: var(--grad-purple);
           color: white;
-          padding: 10px 20px;
+          padding: 0 20px;
+          height: var(--banner-height);
           display: flex;
           justify-content: center;
           align-items: center;
@@ -1043,6 +1045,7 @@ Error generating stack: `+s.message+`
           z-index: 2000;
           box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
           font-family: var(--font-body);
+          padding-top: env(safe-area-inset-top);
         }
         .banner-content {
           display: flex;
@@ -1099,7 +1102,8 @@ Error generating stack: `+s.message+`
         }
         @media (max-width: 768px) {
           .announcement-banner {
-            padding: 4px 10px;
+            padding-left: 10px;
+            padding-right: 10px;
           }
           .banner-badge {
             display: none;
