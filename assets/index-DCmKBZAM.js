@@ -211,48 +211,43 @@ Error generating stack: `+s.message+`
           cursor: pointer;
         }
         .mobile-nav {
-          position: fixed; /* Use fixed for menu to ensure it can scroll independently of header measurement */
-          top: 0;
-          right: 0;
-          bottom: 0;
+          position: absolute;
+          top: 100%; /* Directly below navbar */
           left: 0;
-          background: rgba(0, 0, 0, 0.85);
-          backdrop-filter: blur(8px);
-          z-index: 2000;
+          right: 0;
+          background: #09090b;
+          border-radius: 0 0 0.75rem 0.75rem;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+          z-index: 2000;          
           display: none;
           flex-direction: column;
-          padding: calc(env(safe-area-inset-top, 0px) + 1.5rem) 1rem 1.5rem;
-          overflow: hidden;
-          align-items: stretch;
+          padding: 0.75rem 0.75rem 1rem;
         }
         .mobile-nav.open {
           display: flex;
         }
         .mobile-nav-content {
-          margin-top: 1.5rem;
+          margin-top: 0.25rem;
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
           padding-bottom: 5rem; /* Space at bottom for scrolling */
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;
-          flex: 1;
+          max-height: 70vh; /* Scrollable dropdown, not full screen */
         }
         .close-menu-btn {
-          position: absolute;
-          top: calc(env(safe-area-inset-top, 0px) + 0.75rem);
-          right: 1.5rem;
-          background: var(--primary);
+          align-self: flex-end;
+          background: transparent;
           border: none;
-          color: white;
-          width: 44px;
-          height: 44px;
-          border-radius: 50%;
+          color: var(--text-muted);
+          width: 32px;
+          height: 32px;
+          border-radius: 999px;
           display: flex;
           align-items: center;
           justify-content: center;
-          z-index: 2100;
-          box-shadow: 0 4px 15px rgba(168, 85, 247, 0.6);
+          margin-right: 0.25rem;
         }
         .mobile-nav-content {
           padding: 0.5rem;
