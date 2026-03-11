@@ -9,6 +9,8 @@ const Navbar = () => {
     { name: 'Home', href: '#' },
     { name: 'Impact', href: '#accomplishments' },
     { name: 'Experience', href: '#experience' },
+    { name: 'Writeups', href: '#linkedin' },
+    { name: 'DSA', href: '#dsa' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
     { name: 'Contact', href: '#contact' },
@@ -101,7 +103,7 @@ const Navbar = () => {
         }
         .nav-links {
           display: flex;
-          gap: 2rem;
+          gap: 1.25rem;
         }
         .nav-item {
           font-size: 0.85rem;

@@ -17,7 +17,7 @@ const LinkedInPosts = () => {
   ];
 
   return (
-    <div className="linkedin-section terminal-section-lite" id="linkedin">
+    <div className="linkedin-section">
       <h2 className="section-title">
         <span className="terminal-prompt">jayanth@portfolio:~$</span>
         <span>cat recent_writeups.md</span>
@@ -108,9 +108,14 @@ const LinkedInPosts = () => {
           font-weight: 600;
           transition: all 0.3s ease;
         }
-        .linkedin-cta:hover {
-          background: rgba(10, 102, 194, 0.2);
-          box-shadow: 0 0 15px rgba(10, 102, 194, 0.2);
+        @media (max-width: 768px) {
+          .posts-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+          }
+          .linkedin-section {
+            padding: 0;
+          }
         }
       `}} />
     </div>

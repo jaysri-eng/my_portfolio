@@ -9,7 +9,7 @@ const DSAList = () => {
   ];
 
   return (
-    <div className="dsa-section terminal-section-lite" id="dsa">
+    <div className="dsa-section">
       <h2 className="section-title">
         <span className="terminal-prompt">jayanth@portfolio:~$</span>
         <span>./list_dsa_concepts.py</span>
@@ -103,11 +103,21 @@ const DSAList = () => {
         }
         @media (max-width: 600px) {
           .dsa-content {
-            padding: 1.5rem;
+            padding: 1.25rem;
           }
           .dsa-header {
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.75rem;
+          }
+          .dsa-header h3 {
+            font-size: 1.25rem;
+          }
+          .topic-tag {
+            font-size: 0.75rem;
+          }
+          .notion-link {
+            width: 100%;
+            justify-content: center;
           }
         }
       `}} />
