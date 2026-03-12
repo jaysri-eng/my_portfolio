@@ -8,11 +8,11 @@ const LinkedInPosts = () => {
       date: "March 2026",
       preview: "Understanding the core concepts of DSA is more important than just solving problems..."
     },
-    // {
-    //   title: "The Power of Flutter in Education",
-    //   date: "Feb 2026",
-    //   preview: "How cross-platform development enabled rapid iteration for the Sign Language app..."
-    // }
+    {
+      title: "Celebrating 100k+ users for Basics of Sign Language app",
+      date: "March 2026",
+      preview: "I'm thrilled to announce that our Sign Language app has reached 100,000+ users on the Google Play Store..."
+    }
   ];
 
   return (
