@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Code2, Database, ShieldCheck, Zap } from 'lucide-react';
+import { Github, Code2, Database, Bot, Zap } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -12,11 +12,11 @@ const Projects = () => {
       link: import.meta.env.VITE_PROJECT_ECOMMERCE_URL
     },
     {
-      title: 'Auth & Authorization System',
-      tech: ['Spring Boot', 'JWT', 'AWS'],
-      desc: 'Secure RBAC system with JWT, email verification, password encryption, and AWS deployment.',
-      icon: <ShieldCheck size={24} />,
-      link: import.meta.env.VITE_PROJECT_AUTH_URL
+      title: 'Trending hashtags AI Agent',
+      tech: ['Python', 'SQLite', 'FAISS', 'HDBSCAN', 'Typer'],
+      desc: 'Multi-stage trend→hashtag pipeline (ingestion, SQLite trend history + velocity, embedding retrieval + clustering, optional LLM refinement). Hybrid stack: SentenceTransformers, HDBSCAN, FAISS; pluggable generation (Ollama, OpenAI-compatible, rule-based) with graceful degradation. Time-series snapshots in SQLite for burst detection. Typer + Rich CLI with hybrid/simple modes and inspectable top-k trends and cluster summaries.',
+      icon: <Bot size={24} />,
+      link: import.meta.env.VITE_PROJECT_TRENDING_HASHTAGS_URL
     },
     {
       title: 'Blogging App Backend',
