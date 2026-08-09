@@ -5,6 +5,15 @@ import { Briefcase, Calendar, MapPin } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
+      company: 'RedHold',
+      role: 'Software Engineer',
+      period: 'Jun 2026 - Present',
+      location: 'Remote',
+      points: [
+        'Working on software infrastructure and software design.'
+      ]
+    },
+    {
       company: 'Valura AI',
       role: 'Mobile App Developer Intern',
       period: 'Nov 2025 - Feb 2026',
