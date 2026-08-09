@@ -9,16 +9,26 @@ const Experience = () => {
       role: 'Software Engineer',
       period: 'Jun 2026 - Present',
       location: 'Remote',
-      summary: 'Growth and go-to-market for Diagrams.so, an AI cloud-architecture diagram generator.',
-      points: [
-        'Launched the developer platform: a public REST API, an MCP server with 22 tools, and Python and TypeScript SDKs, plus the docs site, registry submissions, and the gate-driven release plan behind them.',
-        'Built the outbound email engine from scratch. Three streams (lifecycle, prospect, product-signal) feed one human-reviewed queue, ranked by a 0-100 lead score derived from real payer behavior. Nothing auto-sends.',
-        'Wired live product signals into that engine: an hourly poller catches signups, quota-wall hits, abandoned checkouts and cancellations, with a holdout control group so lift stays measurable.',
-        'Created a "made this for you" prospecting loop that finds GitHub repos with Terraform or Kubernetes infrastructure and no architecture diagram, generates the diagram, and drafts personal outreach around it.',
-        'Ran content and community: daily brand posts with team reshares on LinkedIn and X, and help-first reply drafting for Reddit, Hacker News and Quora.',
-        'Priced and launched a $5 credit pack from worst-case model-cost analysis. It converted its first customer six days after going live.',
-        'Stood up the measurement stack: daily search-rank tracking, referrer attribution in GA4, UTM conventions on all outbound, and a team metrics workbook rebuilt every day.',
-        'Enforced writing quality with an 11-skill editing pipeline and a scanner that blocks AI vocabulary and sentence patterns before any copy ships.'
+      sections: [
+        {
+          summary: 'Growth and go-to-market for Diagrams.so, an AI cloud-architecture diagram generator.',
+          points: [
+            'Launched the developer platform: a public REST API, an MCP server with 22 tools, and Python and TypeScript SDKs, plus the docs site, registry submissions, and the gate-driven release plan behind them.',
+            'Built the outbound email engine from scratch. Three streams (lifecycle, prospect, product-signal) feed one human-reviewed queue, ranked by a 0-100 lead score derived from real payer behavior. Nothing auto-sends.',
+            'Wired live product signals into that engine: an hourly poller catches signups, quota-wall hits, abandoned checkouts and cancellations, with a holdout control group so lift stays measurable.',
+            'Created a "made this for you" prospecting loop that finds GitHub repos with Terraform or Kubernetes infrastructure and no architecture diagram, generates the diagram, and drafts personal outreach around it.',
+            'Ran content and community: daily brand posts with team reshares on LinkedIn and X, and help-first reply drafting for Reddit, Hacker News and Quora.',
+            'Priced and launched a $5 credit pack from worst-case model-cost analysis. It converted its first customer six days after going live.',
+            'Stood up the measurement stack: daily search-rank tracking, referrer attribution in GA4, UTM conventions on all outbound, and a team metrics workbook rebuilt every day.',
+            'Enforced writing quality with an 11-skill editing pipeline and a scanner that blocks AI vocabulary and sentence patterns before any copy ships.'
+          ]
+        },
+        {
+          summary: 'Software infrastructure and software design.',
+          points: [
+            'Decom and remediation for AWS, Azure.'
+          ]
+        }
       ]
     },
     {
@@ -89,12 +99,16 @@ const Experience = () => {
                   <span className="location">{exp.location}</span>
                 </div>
               </div>
-              {exp.summary && <p className="exp-summary">{exp.summary}</p>}
-              <ul className="exp-list">
-                {exp.points.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
+              {(exp.sections || [{ summary: exp.summary, points: exp.points }]).map((section, s) => (
+                <div className="exp-section" key={s}>
+                  {section.summary && <p className="exp-summary">{section.summary}</p>}
+                  <ul className="exp-list">
+                    {section.points.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </motion.div>
         ))}
@@ -165,6 +179,9 @@ const Experience = () => {
           color: var(--primary);
           font-weight: 600;
         }
+        .exp-section + .exp-section {
+          margin-top: 2rem;
+        }
         .exp-summary {
           margin-top: -0.5rem;
           margin-bottom: 1.25rem;
@@ -175,6 +192,7 @@ const Experience = () => {
         .exp-list {
           list-style: none;
           padding: 0;
+          margin: 0;
         }
         .exp-list li {
           margin-bottom: 0.75rem;
